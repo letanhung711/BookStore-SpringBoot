@@ -1,0 +1,438 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Link Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Link icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Link Jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!--Link Css-->
+    <link rel="stylesheet" href="/overview/css/cau-hoi-thuong-gap.css">
+    
+    <title>Câu hỏi thường gặp</title>
+    <!--Biểu tượng-->
+    <link rel='shortcut icon' href='/img/icon/favicon.ico' />
+</head>
+<body>
+<div class="container-fluid">
+    
+    <!--waitload-->
+    <div id="preloader"></div>
+    
+    <!--start header-->
+    <!--top header-->
+<div class="topheader">
+  <div class="container">
+    <div class="mainbox">
+      <div class="row">
+        <div class="left_topheader">
+          <a class="help_topheader" href=""><i class="fa-solid fa-circle-question"></i> Trợ giúp</a>&nbsp;&nbsp;&nbsp;
+          <a class="sale_topheader" href=""><i class="fa-solid fa-gift"></i> Ưu đãi & tiện ích</a>&nbsp;&nbsp;&nbsp;
+          <a class="promotion" href=""><i class="fa-solid fa-bell"></i> Thông báo</a>
+        </div>
+        <div class="right_topheader">
+          <ul class="menu_topheader">
+            <li><a href="/users/dangnhap.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a></li>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href="/users/dangki.html"><i class="fa-solid fa-user-shield"></i> Đăng kí</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--bottom header-->
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-3 img-header">
+        <a href="/index.html">
+          <img src="/img/logo/logo.jpg" alt="Nhasach247">
+        </a>
+      </div>
+
+      <div class="col-6 search_header">
+          <form class="d-flex">
+            <input class="import" type="text" placeholder="Bạn cần tìm gì ?">
+            <i id="icon-input" class="fa-solid fa-magnifying-glass"></i>
+            <button class="search" type="button">Search</button>
+          </form> 
+      </div>
+
+      <div class="col-3 cart-header">
+        <div class="dropdown cart">
+          <button type="button" class="btn">
+            <a href="/users/giohang.html"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (3)</a>
+          </button>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+    <!--end header-->  
+
+<!--start menu-->
+<div id="menu">
+    <div class="container">
+      <nav>
+        <ul id="main-menu">
+          <li>
+            <a href="/index.html"><i class="fa-solid fa-house" style="color: #00cc66"></i> Trang chủ</a>
+          </li>
+          <li>
+            <a href="#" style="font-weight: 600;">Danh mục sản phẩm</a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="#">+ Nổi bật</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Sách mới</a>
+                        </li>
+                        <li>
+                            <a href="">Sắp phát hành</a>
+                        </li>
+                        <li>
+                            <a href="">Sách bán chạy</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sachchuyennganh.html">+ Sách chuyên ngành</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Chính trị - Triết học</a>
+                        </li>
+                        <li>
+                            <a href="">Công nghệ thông tin</a>
+                        </li>
+                        <li>
+                            <a href="">Khoa học tự nhiên</a>
+                        </li>
+                        <li>
+                            <a href="">Lịch sử - Địa lý</a>
+                        </li>
+                        <li>
+                            <a href="">Mỹ thuật - Kiến trúc</a>
+                        </li>
+                        <li>
+                            <a href="">Khoa học xã hội</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sachkinhte.html">+ Sách kinh tế</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Bài học kinh doanh</a>
+                        </li>
+                        <li>
+                            <a href="">Doanh nhân - Tập đoàn</a>
+                        </li>
+                        <li>
+                            <a href="">Khởi nghiệp</a>
+                        </li>
+                        <li>
+                            <a href="">Kinh tế học</a>
+                        </li>
+                        <li>
+                            <a href="">Kỹ năng làm việc</a>
+                        </li>
+                        <li>
+                            <a href="">Marketing - Bán hàng</a>
+                        </li>
+                        <li>
+                            <a href="">Tài chính - Kế toán</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/vanhoctrongnuoc.html">+ Văn học trong nước</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Tiểu thuyết</a>
+                        </li>
+                        <li>
+                            <a href="">Truyện ngắn - Tản văn</a>
+                        </li>
+                        <li>
+                            <a href="">Thơ</a>
+                        </li>
+                        <li>
+                            <a href="">Huyền bí - Giả tưởng</a>
+                        </li>
+                        <li>
+                            <a href="">Phóng sự - Ký sự</a>
+                        </li>
+                        <li>
+                            <a href="">Trinh thám - Kinh dị</a>
+                        </li>
+                        <li>
+                            <a href="">Tiểu sử - Hồi ký</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/hocngoaingu.html">+ Học ngoại ngữ</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Từ điển</a>
+                        </li>
+                        <li>
+                            <a href="">Sách học tiếng Anh</a>
+                        </li>
+                        <li>
+                            <a href="">Sách học tiếng Nhật</a>
+                        </li>
+                        <li>
+                            <a href="">Sách học tiếng Hoa</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sach-ky-nang-song.html">+ Sách kĩ năng sống</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Kỹ năng sống</a>
+                        </li>
+                        <li>
+                            <a href="">Nghệ thuật sống đẹp</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sach-thieu-nhi.html">+ Sách thiếu nhi</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Truyện cổ tích - Thần thoại</a>
+                        </li>
+                        <li>
+                            <a href="">Kĩ năng - Kiến thức</a>
+                        </li>
+                        <li>
+                            <a href="">Vừa học - Vừa chơi</a>
+                        </li>
+                        <li>
+                            <a href="">Văn học</a>
+                        </li>
+                        <li>
+                            <a href="">Truyện kể cho bé</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sach-tuoi-teen.html">+ Sách tuổi teen</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Hướng nghiệp - Kĩ năng</a>
+                        </li>
+                        <li>
+                            <a href="">Văn học teen</a>
+                        </li>
+                        <li>
+                            <a href="">Light Novel</a>
+                        </li>
+                        <li>
+                            <a href="">Truyện tranh - Comic</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/overview/blog.html" style="font-weight: 600;">Blog</a>
+          </li>
+          <li>
+            <a href="/overview/gioithieu.html" style="font-weight: 600;">Giới thiệu</a>
+          </li>
+          <li>
+            <a href="/overview/lien-he.html" style="font-weight: 600;">Liên hệ</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</div>
+<!--end menu-->
+
+    <!--hellayout-->
+        <div id="ck-body">
+            <div id="helplayout"> 
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="left-menu">
+                                <div class="sidemenu-box">
+                                    <ul class="nav sidebar-menu-new">
+                                    <li>
+                                        <a href="/overview/gioithieu.html">Giới thiệu Nhasach247</a>
+                                    </li>
+                                    <li>
+                                        <a href="/overview/cau-hoi-thuong-gap.html">Câu hỏi thường gặp</a>           
+                                    </li>                    
+                                    <li>
+                                        <a href="">Hướng dẫn mua hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="/overview/payment-methods.html">Phương thức thanh toán</a>          
+                                    </li>                   
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="right-content">
+                              <div class="about">
+                                <div class="right">
+                                    <p style="text-align: justify;">Chào mừng bạn đến với website mua hàng trực tuyến <strong>Nhasach247.ga</strong>. Khi truy cập và mua sắm tại Nhasach247, xem như bạn đã đồng ý tuân thủ những quy định của Nhasach247. Vui lòng xem kỹ quy định và kết nối thông tin cùng chúng tôi để xây dựng website ngày càng thân thiện, cầu tiến và phục vụ quý khách hàng ngày một tốt hơn. Nếu có bất cứ thắc mắc hay đề xuất gì, vui lòng email cho chúng tôi qua địa chỉ nhasach247@ga.vn.</p>
+                                    <div class="accordion">
+                                        <div class="accordion-item active">
+                                            <div class="accordion-header">
+                                                <p>Chính sách bảo mật</p>
+                                                <i class="arrow fa-solid fa-chevron-down" style="font-size: 15px; margin-right: 5px;"></i>
+                                            </div>
+                                            <div class="accordion-body">
+                                                Bảo mật thông tin khách hàng là một trong những vấn đề được chúng tôi ưu tiên nhằm tạo điều kiện tốt nhất cho bạn mua sắm tại Bookbuy.vn. Vì thế, Bookbuy.vn cam kết việc sử dụng thông tin cá nhân của khách hàng chỉ nhằm mục đích nâng cao chất lượng dịch vụ, thể hiện sự quan tâm của chúng tôi dành cho bạn và tạo môi trường mua hàng an toàn, tiện lợi tại Bookbuy.vn. Cụ thể, thông tin của bạn chỉ dùng để:
+                                                <p>+ Cung cấp một số tiện ích, nâng cao chất lượng hỗ trợ khách hàng</p>
+                                                <p>+ Làm cơ sở giải quyết các vấn đề khiếu nại, tranh chấp phát sinh liên quan đến việc sử dụng dịch vụ tại website Bookbuy.vn</p>
+                                                <p>+ Ngăn chặn những hoạt động vi phạm pháp luật Việt Nam.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion">
+                                        <div class="accordion-item active">
+                                            <div class="accordion-header">
+                                                <p>Thanh toán trực tuyến</p>
+                                                <i class="arrow fa-solid fa-chevron-down" style="font-size: 15px; margin-right: 5px;"></i>
+                                            </div>
+                                            <div class="accordion-body">
+                                                Mua hàng trên Nhasach247, bạn có thể thanh toán trực tuyến thông qua thẻ ATM nội địa được hỗ trợ kỹ thuật bởi Onepay) hoặc thẻ quốc tế (Visa, Mastercard, JCB) được hỗ trợ kỹ thuật bởi Moca.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion">
+                                        <div class="accordion-item active">
+                                            <div class="accordion-header">
+                                                <p>Chính sách sửa, đổi/trả - Hủy đơn hàng</p>
+                                                <i class="arrow fa-solid fa-chevron-down" style="font-size: 15px; margin-right: 5px;"></i>
+                                            </div>
+                                            <div class="accordion-body">
+                                                <h4>1. Tôi có thể đổi/trả hàng trong thời hạn bao lâu?</h4>
+                                                <p>Ngoài các lỗi kỹ thuật, nếu sản phẩm mua tại Nhasach247.ga còn trong thời gian bảo hành của nhà sản xuất, quý khách có thể đổi/trả sản phẩm dựa theo danh mục được quy định Đổi/Trả hàng trong thời hạn 7 ngày kể từ khi nhận hàng.</p>
+                                                <h4>2. Trong trường hợp nào tôi có thể Đổi/Trả hàng sau khi mua?</h4>
+                                                <p>Sản phẩm được đổi/trả cần đáp ứng các yêu cầu sau:</p>
+                                                    <ul>
+                                                        <li>Còn trong thời hạn đổi/trả và theo đúng quy trình đổi trả.</li>
+                                                        <li>Sản phẩm đúng như trong đơn hàng.</li>
+                                                        <li>Sản phẩm đổi/trả còn nguyên trạng, nguyên tem, chưa có dấu hiệu sử dụng hay làm thay đổi khác so với ban đầu khi đến tay khách hàng.</li>
+                                                        <li>Có hóa đơn, chứng từ mua hàng.</li>
+                                                    </ul>
+                                                <p>Các sản phẩm sau sẽ không được đổi/trả:</p>
+                                                    <ul>
+                                                        <li>Quá hạn đổi/trả.</li>
+                                                        <li>Các lí do xuất phát từ cảm nhận, đánh giá chủ quan của khách hàng về sản phẩm.</li>
+                                                    </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <!--footer-->
+    <div id="footer">
+      <div class="container-fluid container-footer">
+        <div class="row">
+          <!--liên hệ-->
+          <div class="col-3 footer-post">
+            <ul>
+              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Thông Tin Liên Hệ</li>
+              <li>
+                Hotline: 
+                <b style="color: #00cc66;">0818 385 099</b>
+              </li>
+              <li>Email: nhasach247@ga.vn</li>
+            </ul>
+          </div>
+          <!--tài khoản-->
+          <div class="col-3 footer-post">
+            <ul>
+              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Tài Khoản</li>
+              <li>
+                <a href="#" title="Tài khoản">Tài khoản</a>
+              </li>
+              <li>
+                <a href="#" title="Danh sách đơn hàng">Danh sách đơn hàng</a>
+              </li>
+              <li>
+                <a href="#" title="Thông báo">Thông báo</a>
+              </li>
+              <li>
+                <a href="#" title="Lịch sử giao dịch">Lịch sử giao dịch</a>
+              </li>
+            </ul>
+          </div>
+          <!--trợ giúp-->
+          <div class="col-3 footer-post">
+            <ul>
+              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Trợ giúp</li>
+              <li>
+                <a href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a>
+              </li>
+              <li>
+                <a href="/overview/payment-methods.html" title="Phương thức thanh toán">Phương thức thanh toán</a>
+              </li>
+              <li>
+                <a href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
+              </li>
+              <li>
+                <a href="/overview/cau-hoi-thuong-gap.html" title="Câu hỏi thường gặp (FAQs)">Câu hỏi thường gặp (FAQs)</a>
+              </li>
+            </ul>
+          </div>
+        
+          <!--xã hội-->
+          <div class="col-3 footer-post">
+            <ul>
+              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Mạng xã hội</li>
+              <li>
+                <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i> Nhasach247</a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/nhasach247ga" title="Facebook"><i class="fa-brands fa-facebook" style="color: #1877F2"></i> Nhasach247.ga</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-12">
+            <div style="text-align: center; border-top: 1px solid white;"> Copyright © 2022 Nhasach247.ga</div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+</div>
+</body>
+<!--link javascript-->
+<script type="text/javascript" src="/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.accordion-item.active .accordion-body').slideDown();
+            $('.accordion-header').click(function() {
+                $(this).parent().toggleClass('active');
+                $(this).parent().children('.accordion-body').slideToggle();
+            })
+        });
+    </script>
+</html>

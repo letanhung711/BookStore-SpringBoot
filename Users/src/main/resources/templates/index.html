@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--Link Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Link icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Link Css-->
+    <link rel="stylesheet" th:href="@{/main.css}">
+    <!--Link to Animate.css-->
+    <link rel="stylesheet" th:href="@{/animate.css}">
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <title th:text="${title}">Nhasach247.ga</title>
+    <!--Biểu tượng-->
+    <link rel='shortcut icon' href='/img/icon/favicon.ico' />
+</head>
+<body>
+<div class="container">
+    <!--top header-->
+    <div class="topheader">
+        <div class="container">
+            <div class="mainbox">
+                <div class="row">
+                    <div class="left_topheader">
+                        <a class="help_topheader" href="#"><i class="fa-solid fa-circle-question"></i> Trợ giúp</a>&nbsp;&nbsp;&nbsp;
+                        <a class="sale_topheader" href="#"><i class="fa-solid fa-gift"></i> Ưu đãi & tiện ích</a>&nbsp;&nbsp;&nbsp;
+                        <a class="promotion" href="#"><i class="fa-solid fa-bell"></i> Thông báo</a>
+                    </div>
+                    <div class="right_topheader">
+                        <ul class="menu_topheader">
+                            <li><a th:href="@{/login}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><a th:href="@{/register}"><i class="fa-solid fa-user-shield"></i> Đăng kí</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--bottom header-->
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 img-header">
+                    <a th:href="@{/}">
+                        <img src="/img/logo.jpg" alt="Nhasach247">
+                    </a>
+                </div>
+
+                <div class="col-6 search_header">
+                    <form class="d-flex">
+                        <input id="import" type="text" placeholder="Bạn cần tìm gì ?">
+                        <i id="icon-input" class="fa-solid fa-magnifying-glass"></i>
+                        <button class="search" type="button" onclick="kiemtra()">Search</button>
+                    </form>
+                </div>
+
+                <div class="col-3 cart-header">
+                    <div class="dropdown cart">
+                        <button type="button" class="btn">
+                            <a th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (0)</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end header-->
+
+    <!--start menu-->
+    <div id="menu">
+        <div class="container">
+            <nav>
+                <ul id="main-menu">
+                    <li>
+                        <a th:href="@{/}"><i class="fa-solid fa-house" style="color: #00cc66"></i> Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="#" style="font-weight: 600;">Danh mục sản phẩm</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#">+ Nổi bật</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Sách mới</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sắp phát hành</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sách bán chạy</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sachchuyennganh.html">+ Sách chuyên ngành</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Chính trị - Triết học</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Công nghệ thông tin</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Khoa học tự nhiên</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Lịch sử - Địa lý</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Mỹ thuật - Kiến trúc</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Khoa học xã hội</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sachkinhte.html">+ Sách kinh tế</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Bài học kinh doanh</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Doanh nhân - Tập đoàn</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Khởi nghiệp</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Kinh tế học</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Kỹ năng làm việc</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Marketing - Bán hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Tài chính - Kế toán</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/vanhoctrongnuoc.html">+ Văn học trong nước</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Tiểu thuyết</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Truyện ngắn - Tản văn</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Thơ</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Huyền bí - Giả tưởng</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Phóng sự - Ký sự</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Trinh thám - Kinh dị</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Tiểu sử - Hồi ký</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/hocngoaingu.html">+ Học ngoại ngữ</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Từ điển</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sách học tiếng Anh</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sách học tiếng Nhật</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sách học tiếng Hoa</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sach-ky-nang-song.html">+ Sách kĩ năng sống</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Kỹ năng sống</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Nghệ thuật sống đẹp</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sach-thieu-nhi.html">+ Sách thiếu nhi</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Truyện cổ tích - Thần thoại</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Kĩ năng - Kiến thức</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Vừa học - Vừa chơi</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Văn học</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Truyện kể cho bé</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sach-tuoi-teen.html">+ Sách tuổi teen</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Hướng nghiệp - Kĩ năng</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Văn học teen</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Light Novel</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Truyện tranh - Comic</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a th:href="@{/pages/blog}" style="font-weight: 600;">Blog</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/pages/intro}" style="font-weight: 600;">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/pages/contact}" style="font-weight: 600;">Liên hệ</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--end menu-->
+
+    <!--news-blog-->
+    <div class="container" style="padding:0;">
+        <div id="main-blog">
+            <div class="news"><h4>NEWS</h4></div>
+            <div class="news-blog">
+                <div class="boxPadding">
+                    <div id="box">
+                        <div>
+                            <img src="/img/icon/favicon.ico">
+                            <a href="#">THÔNG BÁO THỜI GIAN XỬ LÝ VÀ GIAO HÀNG DỊP TẾT NHÂM DẦN 2022</a>
+                        </div>
+                        <div>
+                            <img src="/img/icon/favicon.ico">
+                            <a href="#">Những tác phẩm văn học kinh điển nước ngoài nhất định bạn phải đọc</a>
+                        </div>
+                        <div>
+                            <img src="/img/icon/favicon.ico">
+                            <a href="#">ĐỌC SÁCH MỖI NGÀY GIÚP NÂNG CAO TINH THẦN TỰ HỌC</a>
+                        </div>
+                        <div>
+                            <img src="/img/icon/favicon.ico">
+                            <a href="#">Cách giúp bạn rèn luyện thói quen đọc sách mỗi ngày cực hiệu quả</a>
+                        </div>
+                        <div>
+                            <img src="/img/icon/favicon.ico">
+                            <a href="#">TOP TRUYỆN TRANH CỰC HOT TỪ THẾ HỆ 8X 9X ĐẾN NAY</a>
+                        </div>
+                        <div>
+                            <img src="/img/icon/favicon.ico">
+                            <a href="#">HÈ NGẬP NẮNG - TAY NGẬP QUÀ (28/5/2022 - 30/7/2022)</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="thoi_gian">
+                <div>
+                    <span id="gio">00</span>
+                </div>
+                <div>
+                    <span id="phut">00</span>
+                </div>
+                <div>
+                    <span id="giay">00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container wow pulse">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides fade">
+            <img src="/img/slideshow/carousel0.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/img/slideshow/carousel1.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/img/slideshow/carousel3.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/img/slideshow/carousel4.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="/img/slideshow/carousel5.jpg" style="width:100%">
+        </div>
+
+    </div>
+    <br>
+
+    <!-- The dots/circles -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+    <br>
+
+    <!--wrapper-->
+    <!--wrapper1-->
+    <div id="wrapper" class="wow bounceInUp">
+        <div class="headline">
+            <h3>
+                <a class="title" href="#" title="Sách Mới">Sách Mới</a>
+                <a class="more" href="#" title="Xem thêm">Xem Thêm</a>
+            </h3>
+        </div>
+        <!-- Swiper -->
+        <div class="conatiner">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="/danhmuc/2/0001/tam-biet-troi-xanh.html" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/tam-biet-troi-xanh.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Misaki</a>
+                                        <a href="/danhmuc/2/0001/tam-biet-troi-xanh.html" class="product-name">Tạm biệt trời xanh</a>
+                                        <div class="product-price">98,500₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/co-ban-la-co-ban.png" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Huy Thông</a>
+                                        <a href="" class="product-name">Cơ bản là cơ bản</a>
+                                        <div class="product-price">40,500₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/truong-thanh-doi-khi-cung-khoc.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Twoego</a>
+                                        <a href="" class="product-name">Trưởng thành đôi khi cũng khóc</a>
+                                        <div class="product-price">98,500₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/du-cho-khong- co-phep-mau.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Kii Kanna</a>
+                                        <a href="" class="product-name">Dù Cho Không Có Phép Màu</a>
+                                        <div class="product-price">190.080₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/mui-hech.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Trần Huỳnh Diệp</a>
+                                        <a href="" class="product-name">Mũi hếch</a>
+                                        <div class="product-price">84,000₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/chuyen-ke-rang-co-nang-va-toi.png" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Nhiều tác giả</a>
+                                        <a href="" class="product-name">Chuyện kể rằng cô nàng và tôi</a>
+                                        <div class="product-price">61,500₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/bia-1_nguoi-ben-goi__14244_thum_135.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Khốn Ỷ Nguy Lâu</a>
+                                        <a href="" class="product-name">Người Bên Gối (Bản Thường)</a>
+                                        <div class="product-price">95.200₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/bia-yeu-tham-1-__88725.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Cát Xuyên Lưu</a>
+                                        <a href="" class="product-name">Yêu Thầm ( Bản Thường)</a>
+                                        <div class="product-price">148.500₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/lam-dau-nha-soi.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Hana Inu</a>
+                                        <a href="" class="product-name">Làm Dâu Nhà Sói (Bản Thường)</a>
+                                        <div class="product-price">69.000₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachmoi/hai-van-dam-duoi-day-bien-huy-hoang__96562.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Jules Verne</a>
+                                        <a href="" class="product-name">Hai Vạn Dặm Dưới Biển</a>
+                                        <div class="product-price">68.000₫</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--wrapper2-->
+    <div id="wrapper" class="wow bounceInUp">
+        <div class="headline">
+            <h3>
+                <a class="title" href="#" title="Sắp Phát Hành">Sắp Phát Hành</a>
+                <a class="more" href="#" title="Xem thêm">Xem Thêm</a>
+            </h3>
+        </div>
+        <!-- Swiper -->
+        <div class="conatiner">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/ke-doat-hon.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Sebastian Fitzek</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Kẻ Đoạt Hồn</a>
+                                        <div class="product-price">103,200đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/nghiet-tu.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Bạch Tiên Dũng</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Nghiệt Tử</a>
+                                        <div class="product-price">151,300đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/dung-hen-ngay-mai.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Shimamoto Rio</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Đừng Hẹn Ngày Mai</a>
+                                        <div class="product-price">93,500đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/den-ngay-gap-anh.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Ryousuke Nanasaki</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Đến Ngày Gặp Anh</a>
+                                        <div class="product-price">97,300đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/bia_1_dao_nguc_mon.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Yokomizo Seishi</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Đảo Ngục Môn</a>
+                                        <div class="product-price">72,000đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/moi-ngay-tiet-kiem-mot-gio_117895_1.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Michael Heppell</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Mỗi Ngày Tiết Kiệm Một Giờ</a>
+                                        <div class="product-price">63,500 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/thanh-xuan-la-gi-em-nhi-_117879_1.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Việt Anh Trần</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Thanh Xuân Là Gì Em Nhỉ?</a>
+                                        <div class="product-price">84,000 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/ke-cho-toi-nghe_117873_1.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Radio Người Giữ Kỉ Niệm</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Kể Cho Tôi Nghe</a>
+                                        <div class="product-price">84,000 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/ngay-thang-nam_117824_1.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Diêm Liên Khoa</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Ngày Tháng Năm</a>
+                                        <div class="product-price">102,000 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sapphathanh/doc-vi-tam-ly-bat-cu-ai_117891_1.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Dale Carnegie Associates</a>
+                                        <a href="" class="product-reserve">Đặt Trước</a>
+                                        <a href="" class="product-name">Đọc Vị Tâm Lý Bất Cứ Ai</a>
+                                        <div class="product-price">126,500 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--wrapper3-->
+    <div id="wrapper" class="wow bounceInUp">
+        <div class="headline">
+            <h3>
+                <a class="title" href="#" title="Sách Bán Chạy">Sách Bán Chạy</a>
+                <a class="more" href="#" title="Xem thêm">Xem Thêm</a>
+            </h3>
+        </div>
+        <!-- Swiper -->
+        <div class="conatiner">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/ban-be-toi-van-ngom-ca-roi.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Avery Monsen Jory John</a>
+                                        <a href="" class="product-name">Bạn Bè Tôi Ngỏm Cả Rồi</a>
+                                        <div class="product-price">30,500đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/nguoi-khuan-da_.png" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Cao Huy Thuần</a>
+                                        <a href="" class="product-name">Người Khuân Đá</a>
+                                        <div class="product-price">89,000đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/cam-on-nguoi-lon_.png" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Nguyễn Nhật Ánh</a>
+                                        <a href="" class="product-name">Cảm ơn người lớn(Bìa mềm)</a>
+                                        <div class="product-price">93,500đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/di-that-xa-tren-mot-chiec-camper.png" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Khải Đơn</a>
+                                        <a href="" class="product-name">Đi Thật Xa Trên Một Chiếc Camper</a>
+                                        <div class="product-price">146,000đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/hai-so-phan.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Jeffrey Archer</a>
+                                        <a href="" class="product-name">Hai Số Phận(Bìa cứng)</a>
+                                        <div class="product-price">148,500đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/mat-biec-ban-dac-biet-_100101_2.jpeg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">''</a>
+                                        <a href="" class="product-name">Mắt Biếc (Bản Đặc Biệt Bìa Cứng)</a>
+                                        <div class="product-price">187,000 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/co-dinh-mot-dam-may_93567_1.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Nguyễn Ngọc Tư</a>
+                                        <a href="" class="product-name">Cố Định Một Đám Mây</a>
+                                        <div class="product-price">82,000 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/tim-minh-trong-the-gioi-hau-tuoi-tho_104835_1.png" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Đặng Hoàng Giang</a>
+                                        <a href="" class="product-name">Tìm Mình Trong Thế Giới Hậu Tuổi Thơ</a>
+                                        <div class="product-price">120,500 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/danh-sach-cua-schindler_91159_1.jpg" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">Thomas Keneally</a>
+                                        <a href="" class="product-name">Danh Sách Của Schindler</a>
+                                        <div class="product-price">126,500 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <ul class="products">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img src="/img/sanpham/sachbanchay/van-gogh_75252_1.gif" alt="">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="" class="product-cat">David Haziot</a>
+                                        <a href="" class="product-name">Van Gogh</a>
+                                        <div class="product-price">150,000 đ</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear" style="padding-top: 30px; clear: both;"></div>
+
+    <!--Thanh Intro-->
+    <div class="container container-intro wow bounceInUp">
+        <div class="content">
+            <li>
+                <b>NHÀ SÁCH TRỰC TUYẾN NHASACH247.GA</b>
+            <li style="font-family: Arial, Helvetica, sans-serif; line-height: 18px; font-size: 12px; text-align: justify;">
+                <p style="padding: inherit;">
+                    <a href="#" style="padding: 0; border: 0; color: #111; font-weight: 600; text-decoration: none;"><b>Mua sách online</b></a>
+                    tại Nhasach247.ga để được cập nhật nhanh nhất các tựa sách đủ thể loại với mức giảm 20 – 35% cùng
+                    nhiều ưu đãi, quà tặng kèm. Qua nhiều năm, không chỉ là địa chỉ tin cậy để bạn
+                    <b>mua sách trực tuyến</b>
+                    , Nhasach247 còn có quà tặng, văn phòng phẩm, vật dụng gia đình,…với chất lượng đảm bảo, chủng loại đa
+                    dạng, chế độ bảo hành đầy đủ và giá cả hợp lý từ hàng trăm thương hiệu uy tín trong và ngoài nước. Đặc
+                    biệt, bạn có thể chọn những mẫu sổ tay handmade hay nhiều <b>món quà độc đáo</b> chỉ có tại Nhasach247.ga.
+                </p>
+                <p style="padding: inherit;">
+                    <b>Mua sách online</b>
+                    tại Nhasach247, bạn được tận hưởng chính sách hỗ trợ miễn phí đổi trả hàng, giao hàng nhanh – tận nơi – miễn
+                    phí*, thanh toán linh hoạt - an toàn, đặc biệt giảm thêm trên giá bán khi sử dụng Ckxu giúp bạn
+                    <b>mua sách online</b> giá 0đ!
+                </p>
+            </li>
+            </li>
+        </div>
+        <div class="row form-letter">
+            <div class="col-6 chicken-letter">
+                <div class="col-3">
+                    <img src="/img/checken-inbox.png" style="width: 100%; height: 130px;">
+                </div>
+                <div class="col-9">
+                    <p class="head-text-letter">Đăng kí nhận bản tin từ Nhasach247</p>
+                    <p class="sub-text-letter">Đừng bỏ lỡ tin nhắn ưu đãi độc quyền dành riêng cho bạn</p>
+                </div>
+            </div>
+            <div class="col-6 chicken-form">
+                <form>
+                    <div class="entry-form">
+                        <input type="hidden" id="sexId" name="sexId">
+                        <input type="text" name="EmailLetter" id="submit-letter" placeholder="Nhập địa chỉ email của bạn">
+                        <ul class="action-submit">
+                            <li><a class="submit-letter-chicken" data-gender="0" onclick="ktra_mail()">Gửi</a></li>
+<!--                            <li><a class="submit-letter-chicken" data-gender="1" onclick="ktra_mail()">NỮ</a></li>-->
+<!--                            <li><a class="submit-letter-chicken" data-gender="2" onclick="ktra_mail()">LGBT</a></li>-->
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear" style="padding-top: 30px; clear: both;"></div>
+
+    <!--footer-->
+    <div id="footer">
+        <div class="container-fluid container-footer">
+            <div class="row">
+                <!--liên hệ-->
+                <div class="col-3 footer-post">
+                    <ul>
+                        <li style="text-transform: uppercase; color: #111; font-weight: 500;">Thông Tin Liên Hệ</li>
+                        <li>
+                            Hotline:
+                            <b style="color: #00cc66;">0818 385 099</b>
+                        </li>
+                        <li>Email: nhasach247@ga.vn</li>
+                    </ul>
+                </div>
+                <!--tài khoản-->
+                <div class="col-3 footer-post">
+                    <ul>
+                        <li style="text-transform: uppercase; color: #111; font-weight: 500;">Tài Khoản</li>
+                        <li>
+                            <a href="#" title="Tài khoản">Tài khoản</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Danh sách đơn hàng">Danh sách đơn hàng</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Thông báo">Thông báo</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Lịch sử giao dịch">Lịch sử giao dịch</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--trợ giúp-->
+                <div class="col-3 footer-post">
+                    <ul>
+                        <li style="text-transform: uppercase; color: #111; font-weight: 500;">Trợ giúp</li>
+                        <li>
+                            <a href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a>
+                        </li>
+                        <li>
+                            <a href="/overview/payment-methods.html" title="Phương thức thanh toán">Phương thức thanh toán</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
+                        </li>
+                        <li>
+                            <a href="/overview/cau-hoi-thuong-gap.html" title="Câu hỏi thường gặp (FAQs)">Câu hỏi thường gặp (FAQs)</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--xã hội-->
+                <div class="col-3 footer-post">
+                    <ul>
+                        <li style="text-transform: uppercase; color: #111; font-weight: 500;">Mạng xã hội</li>
+                        <li>
+                            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i> Nhasach247</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Facebook"><i class="fa-brands fa-facebook" style="color: #1877F2"></i> Nhasach247.ga</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div style="text-align: center; border-top: 1px solid white;"> Copyright © 2023 Nhasach247</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="backtop" class="wow bounceInDown" onclick="topFunction()">
+        <i class="fa-solid fa-chevron-up"></i>
+    </div>
+
+    <div id="darkmode" class="wow bounceInRight" onclick="myFunction()">
+        <img id="sun-moon" src="/img/icon/icon-moon.png" alt="dark-mode">
+    </div>
+</body>
+<!--link javascript-->
+<script type="text/javascript" src="/js/main.js"></script>
+<!--js wow-->
+<script src="/js/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+</html>

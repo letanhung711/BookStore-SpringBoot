@@ -1,0 +1,521 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Link Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Link Icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Link Css-->
+    <link rel="stylesheet" th:href="@{/giohang.css}">
+    
+    <title th:text="${title}">Cart</title>
+    <link rel='shortcut icon' href='/img/icon/favicon.ico' />
+</head>
+<body>
+<div class="container">
+  
+    <!--start header-->
+    <!--top header-->
+    <div class="topheader">
+      <div class="container">
+        <div class="mainbox">
+          <div class="row">
+            <div class="left_topheader">
+              <a class="help_topheader" href=""><i class="fa-solid fa-circle-question"></i> Trợ giúp</a>&nbsp;&nbsp;&nbsp;
+              <a class="sale_topheader" href=""><i class="fa-solid fa-gift"></i> Ưu đãi & tiện ích</a>&nbsp;&nbsp;&nbsp;
+              <a class="promotion" href=""><i class="fa-solid fa-bell"></i> Thông báo</a>
+            </div>
+            <div class="right_topheader">
+              <ul class="menu_topheader">
+                <li><a th:href="@{/login}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a></li>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a th:href="@{/register}"><i class="fa-solid fa-user-shield"></i> Đăng kí</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--bottom header-->
+    <div id="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-3 img-header">
+            <a th:href="@{/}">
+              <img src="/img/logo.jpg" alt="Nhasach247">
+            </a>
+          </div>
+
+          <div class="col-6 search_header">
+              <form class="d-flex">
+                <input type="text" placeholder="Bạn cần tìm gì ?">
+                <i id="icon-input" class="fa-solid fa-magnifying-glass"></i>
+                <button class="search" type="button">Search</button>
+              </form>
+          </div>
+
+          <div class="col-3 cart-header">
+            <div class="dropdown cart">
+              <button type="button" class="btn">
+                <a th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (0)</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end header-->
+
+    <!--start menu-->
+    <div id="menu">
+        <div class="container">
+          <nav>
+            <ul id="main-menu">
+              <li>
+                <a href="/index.html"><i class="fa-solid fa-house" style="color: #00cc66;"></i> Trang chủ</a>
+              </li>
+              <li>
+                <a href="#" style="font-weight: 600;">Danh mục sản phẩm</a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="#">+ Nổi bật</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="">Sách mới</a>
+                            </li>
+                            <li>
+                                <a href="">Sắp phát hành</a>
+                            </li>
+                            <li>
+                                <a href="">Sách bán chạy</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/danhmuc/1/sachchuyennganh.html">+ Sách chuyên ngành</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="">Chính trị - Triết học</a>
+                            </li>
+                            <li>
+                                <a href="">Công nghệ thông tin</a>
+                            </li>
+                            <li>
+                                <a href="">Khoa học tự nhiên</a>
+                            </li>
+                            <li>
+                                <a href="">Lịch sử - Địa lý</a>
+                            </li>
+                            <li>
+                                <a href="">Mỹ thuật - Kiến trúc</a>
+                            </li>
+                            <li>
+                                <a href="">Khoa học xã hội</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/danhmuc/1/sachkinhte.html">+ Sách kinh tế</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="">Bài học kinh doanh</a>
+                            </li>
+                            <li>
+                                <a href="">Doanh nhân - Tập đoàn</a>
+                            </li>
+                            <li>
+                                <a href="">Khởi nghiệp</a>
+                            </li>
+                            <li>
+                                <a href="">Kinh tế học</a>
+                            </li>
+                            <li>
+                                <a href="">Kỹ năng làm việc</a>
+                            </li>
+                            <li>
+                                <a href="">Marketing - Bán hàng</a>
+                            </li>
+                            <li>
+                                <a href="">Tài chính - Kế toán</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/danhmuc/1/vanhoctrongnuoc.html">+ Văn học trong nước</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="">Tiểu thuyết</a>
+                            </li>
+                            <li>
+                                <a href="">Truyện ngắn - Tản văn</a>
+                            </li>
+                            <li>
+                                <a href="">Thơ</a>
+                            </li>
+                            <li>
+                                <a href="">Huyền bí - Giả tưởng</a>
+                            </li>
+                            <li>
+                                <a href="">Phóng sự - Ký sự</a>
+                            </li>
+                            <li>
+                                <a href="">Trinh thám - Kinh dị</a>
+                            </li>
+                            <li>
+                                <a href="">Tiểu sử - Hồi ký</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/danhmuc/1/hocngoaingu.html">+ Học ngoại ngữ</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="">Từ điển</a>
+                            </li>
+                            <li>
+                                <a href="">Sách học tiếng Anh</a>
+                            </li>
+                            <li>
+                                <a href="">Sách học tiếng Nhật</a>
+                            </li>
+                            <li>
+                                <a href="">Sách học tiếng Hoa</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/danhmuc/1/sach-ky-nang-song.html">+ Sách kĩ năng sống</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="">Kỹ năng sống</a>
+                            </li>
+                            <li>
+                                <a href="">Nghệ thuật sống đẹp</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/danhmuc/1/sach-thieu-nhi.html">+ Sách thiếu nhi</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="">Truyện cổ tích - Thần thoại</a>
+                            </li>
+                            <li>
+                                <a href="">Kĩ năng - Kiến thức</a>
+                            </li>
+                            <li>
+                                <a href="">Vừa học - Vừa chơi</a>
+                            </li>
+                            <li>
+                                <a href="">Văn học</a>
+                            </li>
+                            <li>
+                                <a href="">Truyện kể cho bé</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/danhmuc/1/sach-tuoi-teen.html">+ Sách tuổi teen</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="">Hướng nghiệp - Kĩ năng</a>
+                            </li>
+                            <li>
+                                <a href="">Văn học teen</a>
+                            </li>
+                            <li>
+                                <a href="">Light Novel</a>
+                            </li>
+                            <li>
+                                <a href="">Truyện tranh - Comic</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+              </li>
+              <li>
+                <a href="/overview/blog.html" style="font-weight: 600;">Blog</a>
+              </li>
+              <li>
+                <a href="/overview/gioithieu.html" style="font-weight: 600;">Giới thiệu</a>
+              </li>
+              <li>
+                <a href="/overview/lien-he.html" style="font-weight: 600;">Liên hệ</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    <!--end menu-->
+
+    <!-- Breadcrumbs -->
+    <div class="container p-0">
+        <div class="row">
+          <div class="col-12">
+            <ol class="breadcrumb bg-light col-12">
+              <li class="breadcrumb-item">
+              <a href="#">Trang chủ</a>
+              <span class="divider"></span>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+              Giỏ hàng
+              </li>
+            </ol>
+          </div>
+        </div>
+    </div>
+
+    <!--cart-->
+    <section class="h-custom">
+      <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-12">
+            <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-8">
+                    <div class="p-4">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <h1 class="fw-bold text-black" style="font-size: 20px;">Giỏ hàng</h1>
+                        <h6 class="text-muted">3 sản phẩm</h6>
+                      </div>
+                      <hr>
+
+                      <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="/img/danhmuc/2/tuoi-tre-dang-gia-bao-nhieu__76244_thum_135.jpg"
+                            class="img-fluid rounded-3" alt="Cotton T-shirt">
+                        </div>
+                        <div class="col-4">
+                          <h6 class="text-black mb-0">Tuổi Trẻ Đáng Giá Bao Nhiêu</h6>
+                          <h7 class="text-muted">Rosie Nguyễn</h7>
+                        </div>
+                        <div class="col-3 d-flex">
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fas fa-minus"></i>
+                          </button>
+
+                          <input id="form1" min="0" name="quantity" value="1" type="number"
+                            class="form-control form-control-sm" />
+
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                        <div class="col-2">
+                          <h6 class="mb-0">59.500 ₫</h6>
+                        </div>
+                        <div class="col-1">
+                          <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="/img/danhmuc/1/xa-hoi-viet-nam__37697_thum_135.jpg"
+                            class="img-fluid rounded-3" alt="Xã Hội Việt Nam">
+                        </div>
+                        <div class="col-4">
+                          <h6 class="text-black mb-0">Xã Hội Việt Nam</h6>
+                          <h7 class="text-muted">Lương Đức Thiệp</h7>
+                        </div>
+                        <div class="col-3 d-flex">
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fas fa-minus"></i>
+                          </button>
+
+                          <input id="form1" min="0" name="quantity" value="1" type="number"
+                            class="form-control form-control-sm" />
+
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                        <div class="col-2">
+                          <h6 class="mb-0">73.100 ₫</h6>
+                        </div>
+                        <div class="col-1">
+                          <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="/img/danhmuc/6/hen-gap-em__77371_thum_135.jpg"
+                            class="img-fluid rounded-3" alt="Hẹn Gặp Em">
+                        </div>
+                        <div class="col-4">
+                          <h6 class="text-black mb-0">Hẹn Gặp Em</h6>
+                          <h7 class="text-muted">Hạc Xanh</h7>
+                        </div>
+                        <div class="col-3 d-flex">
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                            <i class="fas fa-minus"></i>
+                          </button>
+
+                          <input id="form1" min="0" name="quantity" value="1" type="number"
+                            class="form-control form-control-sm" />
+
+                          <button class="btn btn-link px-2"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                            <i class="fas fa-plus"></i>
+                          </button>
+                        </div>
+                        <div class="col-2">
+                          <h6 class="mb-0">73.100 ₫</h6>
+                        </div>
+                        <div class="col-1">
+                          <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="pt-4">
+                        <h6 class="mb-0">
+                          <a href="#!" class="text-body">
+                            <i class="fas fa-long-arrow-alt-left me-2"></i>
+                            Back to shop
+                          </a>
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4 bg-grey">
+                    <div class="p-4">
+                      <h3 class="fw-bold pt-1" style="font-size: 20px;">Summary</h3>
+                      <hr>
+
+                      <div class="d-flex justify-content-between mb-3">
+                        <h6>Sản phẩm: 3</h6>
+                        <h5>205.700 ₫</h5>
+                      </div>
+
+                      <h6 class="text-uppercase mb-3">Hình thức giao hàng</h6>
+
+                      <div class="mb-4 pb-2">
+                        <select class="select">
+                          <option value="1">GH Tiêu chuẩn: 20.000 ₫</option>
+                          <option value="2">GH Nhanh: 50.000 ₫</option>
+                        </select>
+                      </div>
+
+                      <h6 class="text-uppercase mb-3">Mã giảm giá</h6>
+
+                      <div class="mb-4">
+                        <div class="form-outline">
+                          <input type="text" id="form3Examplea2" class="form-control form-control-sm" />
+                          <label class="form-label" for="form3Examplea2">Nhập mã của bạn</label>
+                        </div>
+                      </div>
+
+                      <hr>
+
+                      <div class="d-flex justify-content-between mb-4">
+                        <h6 class="text-uppercase">Thành tiền</h6>
+                        <h5>225.700 ₫</h5>
+                      </div>
+
+                      <button type="button" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Thanh toán</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <br>
+
+    <!--footer-->
+    <div id="footer">
+      <div class="container-fluid container-footer">
+        <div class="row">
+          <!--liên hệ-->
+          <div class="col-3 footer-post">
+            <ul>
+              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Thông Tin Liên Hệ</li>
+              <li>
+                Hotline:
+                <b style="color: #00cc66;">0818 385 099</b>
+              </li>
+              <li>Email: nhasach247@ga.vn</li>
+            </ul>
+          </div>
+          <!--tài khoản-->
+          <div class="col-3 footer-post">
+            <ul>
+              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Tài Khoản</li>
+              <li>
+                <a href="#" title="Tài khoản">Tài khoản</a>
+              </li>
+              <li>
+                <a href="#" title="Danh sách đơn hàng">Danh sách đơn hàng</a>
+              </li>
+              <li>
+                <a href="#" title="Thông báo">Thông báo</a>
+              </li>
+              <li>
+                <a href="#" title="Lịch sử giao dịch">Lịch sử giao dịch</a>
+              </li>
+            </ul>
+          </div>
+          <!--trợ giúp-->
+          <div class="col-3 footer-post">
+            <ul>
+              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Trợ giúp</li>
+              <li>
+                <a href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a>
+              </li>
+              <li>
+                <a href="/overview/payment-methods.html" title="Phương thức thanh toán">Phương thức thanh toán</a>
+              </li>
+              <li>
+                <a href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
+              </li>
+              <li>
+                <a href="/overview/cau-hoi-thuong-gap.html" title="Câu hỏi thường gặp (FAQs)">Câu hỏi thường gặp (FAQs)</a>
+              </li>
+            </ul>
+          </div>
+
+          <!--xã hội-->
+          <div class="col-3 footer-post">
+            <ul>
+              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Mạng xã hội</li>
+              <li>
+                <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i> Nhasach247</a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/nhasach247ga" title="Facebook"><i class="fa-brands fa-facebook" style="color: #1877f2"></i> Nhasach247.ga</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div style="text-align: center; border-top: 1px solid white;"> Copyright © 2022 Nhasach247.ga</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
