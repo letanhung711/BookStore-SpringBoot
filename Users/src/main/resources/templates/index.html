@@ -1007,6 +1007,44 @@
         </div>
     </div>
 
+    <!--wrapper3-->
+    <div id="wrapper" class="wow bounceInUp">
+        <div class="headline">
+            <h3>
+                <a class="title" href="#" title="Test">Sách Bán Chạy</a>
+                <a class="more" href="#" title="Xem thêm">Xem Thêm</a>
+            </h3>
+        </div>
+        <!-- Swiper -->
+        <div class="conatiner">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <ul class="products" th:each="e: ${products}">
+                            <li>
+                                <div class="product-item">
+                                    <div class="product-top">
+                                        <a href="" class="product-thumb">
+                                            <img th:src="${e.image}">
+                                        </a>
+                                        <a href="" class="buy-now">Mua ngay</a>
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="#" class="product-cat" th:text="${e.author}"></a>
+                                        <a href="#" class="product-name" th:text="${e.name}"></a>
+                                        <div class="product-price" th:text="${e.price}"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="clear" style="padding-top: 30px; clear: both;"></div>
 
     <!--Thanh Intro-->

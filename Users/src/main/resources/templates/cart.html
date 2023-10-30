@@ -14,8 +14,9 @@
     <link rel='shortcut icon' href='/img/icon/favicon.ico' />
 </head>
 <body>
+
 <div class="container">
-  
+
     <!--start header-->
     <!--top header-->
     <div class="topheader">
@@ -75,7 +76,7 @@
           <nav>
             <ul id="main-menu">
               <li>
-                <a href="/index.html"><i class="fa-solid fa-house" style="color: #00cc66;"></i> Trang chủ</a>
+                <a th:href="@{/}"><i class="fa-solid fa-house" style="color: #00cc66;"></i> Trang chủ</a>
               </li>
               <li>
                 <a href="#" style="font-weight: 600;">Danh mục sản phẩm</a>
@@ -271,175 +272,34 @@
     <!--cart-->
     <section class="h-custom">
       <div class="container">
-        <div class="row d-flex justify-content-center align-items-center">
-          <div class="col-12">
-            <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-              <div class="card-body p-0">
-                <div class="row g-0">
-                  <div class="col-8">
-                    <div class="p-4">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <h1 class="fw-bold text-black" style="font-size: 20px;">Giỏ hàng</h1>
-                        <h6 class="text-muted">3 sản phẩm</h6>
-                      </div>
-                      <hr>
-
-                      <div class="row d-flex justify-content-between align-items-center">
-                        <div class="col-2">
-                          <img
-                            src="/img/danhmuc/2/tuoi-tre-dang-gia-bao-nhieu__76244_thum_135.jpg"
-                            class="img-fluid rounded-3" alt="Cotton T-shirt">
-                        </div>
-                        <div class="col-4">
-                          <h6 class="text-black mb-0">Tuổi Trẻ Đáng Giá Bao Nhiêu</h6>
-                          <h7 class="text-muted">Rosie Nguyễn</h7>
-                        </div>
-                        <div class="col-3 d-flex">
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fas fa-minus"></i>
-                          </button>
-
-                          <input id="form1" min="0" name="quantity" value="1" type="number"
-                            class="form-control form-control-sm" />
-
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fas fa-plus"></i>
-                          </button>
-                        </div>
-                        <div class="col-2">
-                          <h6 class="mb-0">59.500 ₫</h6>
-                        </div>
-                        <div class="col-1">
-                          <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                        </div>
-                      </div>
-
-                      <hr>
-
-                      <div class="row d-flex justify-content-between align-items-center">
-                        <div class="col-2">
-                          <img
-                            src="/img/danhmuc/1/xa-hoi-viet-nam__37697_thum_135.jpg"
-                            class="img-fluid rounded-3" alt="Xã Hội Việt Nam">
-                        </div>
-                        <div class="col-4">
-                          <h6 class="text-black mb-0">Xã Hội Việt Nam</h6>
-                          <h7 class="text-muted">Lương Đức Thiệp</h7>
-                        </div>
-                        <div class="col-3 d-flex">
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fas fa-minus"></i>
-                          </button>
-
-                          <input id="form1" min="0" name="quantity" value="1" type="number"
-                            class="form-control form-control-sm" />
-
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fas fa-plus"></i>
-                          </button>
-                        </div>
-                        <div class="col-2">
-                          <h6 class="mb-0">73.100 ₫</h6>
-                        </div>
-                        <div class="col-1">
-                          <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                        </div>
-                      </div>
-
-                      <hr>
-
-                      <div class="row d-flex justify-content-between align-items-center">
-                        <div class="col-2">
-                          <img
-                            src="/img/danhmuc/6/hen-gap-em__77371_thum_135.jpg"
-                            class="img-fluid rounded-3" alt="Hẹn Gặp Em">
-                        </div>
-                        <div class="col-4">
-                          <h6 class="text-black mb-0">Hẹn Gặp Em</h6>
-                          <h7 class="text-muted">Hạc Xanh</h7>
-                        </div>
-                        <div class="col-3 d-flex">
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fas fa-minus"></i>
-                          </button>
-
-                          <input id="form1" min="0" name="quantity" value="1" type="number"
-                            class="form-control form-control-sm" />
-
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fas fa-plus"></i>
-                          </button>
-                        </div>
-                        <div class="col-2">
-                          <h6 class="mb-0">73.100 ₫</h6>
-                        </div>
-                        <div class="col-1">
-                          <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
-                        </div>
-                      </div>
-
-                      <hr>
-
-                      <div class="pt-4">
-                        <h6 class="mb-0">
-                          <a href="#!" class="text-body">
-                            <i class="fas fa-long-arrow-alt-left me-2"></i>
-                            Back to shop
-                          </a>
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-4 bg-grey">
-                    <div class="p-4">
-                      <h3 class="fw-bold pt-1" style="font-size: 20px;">Summary</h3>
-                      <hr>
-
-                      <div class="d-flex justify-content-between mb-3">
-                        <h6>Sản phẩm: 3</h6>
-                        <h5>205.700 ₫</h5>
-                      </div>
-
-                      <h6 class="text-uppercase mb-3">Hình thức giao hàng</h6>
-
-                      <div class="mb-4 pb-2">
-                        <select class="select">
-                          <option value="1">GH Tiêu chuẩn: 20.000 ₫</option>
-                          <option value="2">GH Nhanh: 50.000 ₫</option>
-                        </select>
-                      </div>
-
-                      <h6 class="text-uppercase mb-3">Mã giảm giá</h6>
-
-                      <div class="mb-4">
-                        <div class="form-outline">
-                          <input type="text" id="form3Examplea2" class="form-control form-control-sm" />
-                          <label class="form-label" for="form3Examplea2">Nhập mã của bạn</label>
-                        </div>
-                      </div>
-
-                      <hr>
-
-                      <div class="d-flex justify-content-between mb-4">
-                        <h6 class="text-uppercase">Thành tiền</h6>
-                        <h5>225.700 ₫</h5>
-                      </div>
-
-                      <button type="button" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Thanh toán</button>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="cart">
+              <table class="table table-striped">
+                  <thead class="bg-dark text-white">
+                  <tr>
+                      <th scope="col">STT</th>
+                      <th scope="col">Ảnh sản phẩm</th>
+                      <th scope="col">Tên sản phẩm</th>
+                      <th scope="col">Đơn giá</th>
+                      <th scope="col">Số lượng</th>
+                      <th scope="col">Thành tiền</th>
+                      <th scope="col">Hành động</th>
+                  </tr>
+                  </thead>
+                  <tbody style="text-align: center; line-height: 65px;">
+                  <tr>
+                      <th>1</th>
+                      <td><img src="/img/sanpham/sachmoi/co-ban-la-co-ban.png" alt="" style="width:45px; height: 60px"></td>
+                      <td>Bạn không thông minh lắm đâu</td>
+                      <td>1000đ</td>
+                      <td>1</td>
+                      <td>1000</td>
+                      <td>
+                          <a class="btn btn-sm btn-danger">Delete</a>
+                      </td>
+                  </tr>
+                  </tbody>
+              </table>
           </div>
-        </div>
       </div>
     </section>
 

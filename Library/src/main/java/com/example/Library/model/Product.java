@@ -16,9 +16,11 @@ public class Product {
     @Column(name = "id_product")
     private Long id;
     private String name;
+    private String author;
     private Double price;
     private String quantity;
     private String note;
+    private byte[] image;
     private Timestamp create_time;
     private Timestamp update_time;
 }

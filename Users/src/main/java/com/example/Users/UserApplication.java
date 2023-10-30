@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = {"com.example.library.*","com.example.users.*"},
 		exclude = {SecurityAutoConfiguration.class})
-@ComponentScan(basePackages = "com.example.users.controller")
 @EnableJpaRepositories(value = "com.example.library.repository")
 @EntityScan(value = "com.example.library.model")
 public class UserApplication {
