@@ -11,7 +11,7 @@ public class ProductDto {
     private Double price;
     private String quantity;
     private String note;
-    private String image;
+    private String imageUrl;
     private String create_time;
     private String update_time;
 }

@@ -356,199 +356,19 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <ul class="products">
+                        <ul class="products" th:each="product: ${topProducts}">
                             <li>
                                 <div class="product-item">
                                     <div class="product-top">
-                                        <a href="/danhmuc/2/0001/tam-biet-troi-xanh.html" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/tam-biet-troi-xanh.jpg" alt="">
+                                        <a th:href="@{'/product/' + ${product.id}}" class="product-thumb">
+                                            <img th:src="${product.imageUrl}">
                                         </a>
                                         <a href="" class="buy-now">Mua ngay</a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="" class="product-cat">Misaki</a>
-                                        <a href="/danhmuc/2/0001/tam-biet-troi-xanh.html" class="product-name">Tạm biệt trời xanh</a>
-                                        <div class="product-price">98,500₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/co-ban-la-co-ban.png" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Huy Thông</a>
-                                        <a href="" class="product-name">Cơ bản là cơ bản</a>
-                                        <div class="product-price">40,500₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/truong-thanh-doi-khi-cung-khoc.jpg" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Twoego</a>
-                                        <a href="" class="product-name">Trưởng thành đôi khi cũng khóc</a>
-                                        <div class="product-price">98,500₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/du-cho-khong- co-phep-mau.jpg" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Kii Kanna</a>
-                                        <a href="" class="product-name">Dù Cho Không Có Phép Màu</a>
-                                        <div class="product-price">190.080₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/mui-hech.jpg" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Trần Huỳnh Diệp</a>
-                                        <a href="" class="product-name">Mũi hếch</a>
-                                        <div class="product-price">84,000₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/chuyen-ke-rang-co-nang-va-toi.png" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Nhiều tác giả</a>
-                                        <a href="" class="product-name">Chuyện kể rằng cô nàng và tôi</a>
-                                        <div class="product-price">61,500₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/bia-1_nguoi-ben-goi__14244_thum_135.jpg" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Khốn Ỷ Nguy Lâu</a>
-                                        <a href="" class="product-name">Người Bên Gối (Bản Thường)</a>
-                                        <div class="product-price">95.200₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/bia-yeu-tham-1-__88725.jpg" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Cát Xuyên Lưu</a>
-                                        <a href="" class="product-name">Yêu Thầm ( Bản Thường)</a>
-                                        <div class="product-price">148.500₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/lam-dau-nha-soi.jpg" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Hana Inu</a>
-                                        <a href="" class="product-name">Làm Dâu Nhà Sói (Bản Thường)</a>
-                                        <div class="product-price">69.000₫</div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <ul class="products">
-                            <li>
-                                <div class="product-item">
-                                    <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img src="/img/sanpham/sachmoi/hai-van-dam-duoi-day-bien-huy-hoang__96562.jpg" alt="">
-                                        </a>
-                                        <a href="" class="buy-now">Mua ngay</a>
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="" class="product-cat">Jules Verne</a>
-                                        <a href="" class="product-name">Hai Vạn Dặm Dưới Biển</a>
-                                        <div class="product-price">68.000₫</div>
+                                        <a href="#" class="product-cat" th:text="${product.author}"></a>
+                                        <a th:href="@{'/product/' + ${product.id}}" class="product-name" th:text="${product.name}"></a>
+                                        <div class="product-price" th:text="${product.price}"></div>
                                     </div>
                                 </div>
                             </li>
@@ -1011,7 +831,7 @@
     <div id="wrapper" class="wow bounceInUp">
         <div class="headline">
             <h3>
-                <a class="title" href="#" title="Test">Sách Bán Chạy</a>
+                <a class="title" href="#" title="Test">TEst</a>
                 <a class="more" href="#" title="Xem thêm">Xem Thêm</a>
             </h3>
         </div>
@@ -1020,19 +840,19 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <ul class="products" th:each="e: ${products}">
+                        <ul class="products" th:each="product: ${products}">
                             <li>
                                 <div class="product-item">
                                     <div class="product-top">
-                                        <a href="" class="product-thumb">
-                                            <img th:src="${e.image}">
+                                        <a th:href="@{'/product/' + ${product.id}}" class="product-thumb">
+                                            <img th:src="${product.imageUrl}">
                                         </a>
                                         <a href="" class="buy-now">Mua ngay</a>
                                     </div>
                                     <div class="product-info">
-                                        <a href="#" class="product-cat" th:text="${e.author}"></a>
-                                        <a href="#" class="product-name" th:text="${e.name}"></a>
-                                        <div class="product-price" th:text="${e.price}"></div>
+                                        <a href="#" class="product-cat" th:text="${product.author}"></a>
+                                        <a th:href="@{'/product/' + ${product.id}}" class="product-name" th:text="${product.name}"></a>
+                                        <div class="product-price" th:text="${product.price}"></div>
                                     </div>
                                 </div>
                             </li>

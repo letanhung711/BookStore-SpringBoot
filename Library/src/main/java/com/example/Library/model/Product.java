@@ -20,7 +20,7 @@ public class Product {
     private Double price;
     private String quantity;
     private String note;
-    private byte[] image;
+    private String imageUrl;
     private Timestamp create_time;
     private Timestamp update_time;
 }

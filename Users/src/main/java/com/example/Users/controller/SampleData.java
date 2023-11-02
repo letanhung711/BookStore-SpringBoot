@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 @Component
 public class SampleData implements CommandLineRunner {
     @Autowired
@@ -26,6 +30,7 @@ public class SampleData implements CommandLineRunner {
             product.setPrice(1000.0);
             product.setQuantity("10");
             product.setNote("");
+            product.setImageUrl("/img/sanpham/sachmoi/tam-biet-troi-xanh.jpg");
             product.setCreate_time(productService.convertToDate("10/29/2023"));
             product.setUpdate_time(productService.convertToDate("10/29/2023"));
             productRepository.save(product);

@@ -16,8 +16,10 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model){
         List<Product> products = productRepository.findAll();
+        List<Product> topProducts = productRepository.findTop10ByOrderByCreate_timeDesc();
         model.addAttribute("title","Mua Sách Online Nhanh Nhất Nhasach247");
         model.addAttribute("products",products);
+        model.addAttribute("topProducts",topProducts);
         return "index";
     }
     @GetMapping("/cart")
