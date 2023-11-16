@@ -70,8 +70,8 @@ body{
     margin-top: 15px;
   }
   .search_header form input {
-    width: 85%; 
-    border: none;  
+    width: 85%;
+    border: none;
     padding: 8px 30px;
     margin: 0;
   }
@@ -82,10 +82,10 @@ body{
     margin: 11px 7px;
   }
   .search_header form .search {
-    background-color: white; 
-    width: 80px; 
+    background-color: white;
+    width: 80px;
     border: none;
-    color: #00cc66; 
+    color: #00cc66;
     font-weight: 600;
     border-left: 1px solid #eee;
   }
@@ -106,7 +106,7 @@ body{
 }
 #main-menu{
     display: flex;
-    list-style: none; 
+    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -187,21 +187,27 @@ nav #main-menu li:hover a{
     color: #6c757d;
     content: "/";
 }
-/*cart*/
-.h-custom{
-    min-height: 50vh;
-}
-.payment-details{
-    width: 80%;
+/*  */
+.img-qr{
+    width: 85%;
     margin: 0 auto;
 }
-
-.btn-pay{
-    background-color: #00cc66;
-    float: right;
-    margin-right: 10px;
-    border: none;
+section {
+    margin-right: 20px;
 }
+
+label, input {
+    margin-bottom: 10px;
+}
+button.checkout-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 
 /*footer*/
 #footer{
@@ -235,4 +241,3 @@ nav #main-menu li:hover a{
     margin-top: 15px;
     border-right: 1px solid #ffffff;
 }
-

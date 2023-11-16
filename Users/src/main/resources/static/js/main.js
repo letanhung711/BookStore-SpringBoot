@@ -1,4 +1,4 @@
-    //news-blog
+//news-blog
     const box = document.getElementById("box");
     animate(box);
 
@@ -15,7 +15,7 @@
             }
         }, 20);
     }
-
+//--------------------------------------------------------------------------
     //time
     function Dong_ho() {
       var gio = document.getElementById("gio");
@@ -29,7 +29,7 @@
       giay.innerHTML = Giay_hien_tai;
     }
     var Dem_gio = setInterval(Dong_ho, 1000);
-
+//--------------------------------------------------------------------------
     //slideshows
     let slideIndex = 0;
     showSlides();
@@ -48,9 +48,9 @@
       }
       slides[slideIndex-1].style.display = "block";
       dots[slideIndex-1].className += " active";
-      setTimeout(showSlides, 4000); // Change image every 4 seconds
+      setTimeout(showSlides, 5000); // Change image every 5 seconds
     }
-
+//--------------------------------------------------------------------------
     //wrapper
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 5,
@@ -64,12 +64,11 @@
       },
     });
 
+//--------------------------------------------------------------------------
     //backtop
     mybacktop = document.getElementById("backtop");
-
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function() {scrollFunction()};
-
     function scrollFunction() {
       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         mybacktop.style.display = "flex";
@@ -77,13 +76,13 @@
         mybacktop.style.display = "none";
       }
     }
-
     // When the user clicks on the button, scroll to the top of the document
     function topFunction() {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
 
+//--------------------------------------------------------------------------
     //dark-mode
     var darkmode =document.getElementById("darkmode");
 
@@ -99,3 +98,55 @@
       }
 
     }
+//--------------------------------------------------------------------------
+    //Swiper
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 5, // Số sản phẩm hiển thị trên mỗi slide
+        spaceBetween: 20, // Khoảng cách giữa các sản phẩm
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+//--------------------------------------------------------------------------
+    // Lấy danh sách tất cả các trường số lượng
+    const quantityInputs = document.querySelectorAll('input[name="quantity"]');
+
+    // Thêm sự kiện onchange cho tất cả trường số lượng để tính tổng tiền khi số lượng thay đổi
+    quantityInputs.forEach(function(input) {
+        input.addEventListener('change', tinhTongTien);
+    });
+
+//tính tổng tiền trong giỏ hàng
+function tinhTongTien() {
+    var table = document.getElementById("table_pay");
+    var rows = table.rows;
+    var total = 0;
+
+    for (var i = 1; i < rows.length - 1; i++) {
+        var cellQuantity = rows[i].querySelector('input[name="quantity"]');
+        var cellPrice = rows[i].cells[3];
+        var cellTotal = rows[i].cells[5];
+        var quantity = parseInt(cellQuantity.value, 10);
+        var price = parseInt(cellPrice.textContent.replace('đ', '').trim(), 10);
+        var subtotal = quantity * price;
+        cellTotal.textContent = subtotal + 'đ';
+        total += subtotal;
+    }
+    document.getElementById("tongTien").textContent = total + 'đ';
+}
+//--------------------------------------------------------------------------
+//Xóa dòng trong giỏ hàng
+    function removeRow(button) {
+            // Xác định dòng (sản phẩm) cần xóa
+            var row = button.parentNode.parentNode;
+            row.remove();
+            // Gọi hàm tính tổng tiền để cập nhật tổng sau khi xóa dòng
+            tinhTongTien();
+    }
+//--------------------------------------------------------------------------
+//Lấy mã đơn hàng
+
+
+

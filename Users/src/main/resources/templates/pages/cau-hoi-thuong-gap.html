@@ -1,4 +1,5 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
     <!--Link Jquery-->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!--Link Css-->
-    <link rel="stylesheet" href="/overview/css/cau-hoi-thuong-gap.css">
+    <link rel="stylesheet" th:href="@{/cau-hoi-thuong-gap.css}">
     
     <title>Câu hỏi thường gặp</title>
     <!--Biểu tượng-->
@@ -35,9 +36,9 @@
         </div>
         <div class="right_topheader">
           <ul class="menu_topheader">
-            <li><a href="/users/dangnhap.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a></li>
+            <li><a th:href="@{/login}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a></li>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <li><a href="/users/dangki.html"><i class="fa-solid fa-user-shield"></i> Đăng kí</a></li>
+            <li><a th:href="@{/register}"><i class="fa-solid fa-user-shield"></i> Đăng kí</a></li>
           </ul>
         </div>
       </div>
@@ -50,8 +51,8 @@
   <div class="container">
     <div class="row">
       <div class="col-3 img-header">
-        <a href="/index.html">
-          <img src="/img/logo/logo.jpg" alt="Nhasach247">
+        <a th:href="@{/}">
+          <img src="/img/logo.jpg" alt="Nhasach247">
         </a>
       </div>
 
@@ -66,7 +67,7 @@
       <div class="col-3 cart-header">
         <div class="dropdown cart">
           <button type="button" class="btn">
-            <a href="/users/giohang.html"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (3)</a>
+            <a th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
           </button>
         </div>
       </div> 
@@ -81,7 +82,7 @@
       <nav>
         <ul id="main-menu">
           <li>
-            <a href="/index.html"><i class="fa-solid fa-house" style="color: #00cc66"></i> Trang chủ</a>
+            <a th:href="@{/}"><i class="fa-solid fa-house" style="color: #00cc66"></i> Trang chủ</a>
           </li>
           <li>
             <a href="#" style="font-weight: 600;">Danh mục sản phẩm</a>
@@ -243,13 +244,13 @@
             </ul>
           </li>
           <li>
-            <a href="/overview/blog.html" style="font-weight: 600;">Blog</a>
+            <a th:href="@{/pages/blog}" style="font-weight: 600;">Blog</a>
           </li>
           <li>
-            <a href="/overview/gioithieu.html" style="font-weight: 600;">Giới thiệu</a>
+            <a th:href="@{/pages/intro}" style="font-weight: 600;">Giới thiệu</a>
           </li>
           <li>
-            <a href="/overview/lien-he.html" style="font-weight: 600;">Liên hệ</a>
+            <a th:href="@{/pages/contact}" style="font-weight: 600;">Liên hệ</a>
           </li>
         </ul>
       </nav>

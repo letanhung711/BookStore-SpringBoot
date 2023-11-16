@@ -17,240 +17,238 @@
 </head>
 <body>
 <div class="container">
-    <!--start header-->
     <!--top header-->
-<div class="topheader">
-  <div class="container">
-    <div class="mainbox">
-      <div class="row">
-        <div class="left_topheader">
-          <a class="help_topheader" href=""><i class="fa-solid fa-circle-question"></i> Trợ giúp</a>&nbsp;&nbsp;&nbsp;
-          <a class="sale_topheader" href=""><i class="fa-solid fa-gift"></i> Ưu đãi & tiện ích</a>&nbsp;&nbsp;&nbsp;
-          <a class="promotion" href=""><i class="fa-solid fa-bell"></i> Thông báo</a>
+    <div class="topheader">
+        <div class="container">
+            <div class="mainbox">
+                <div class="row">
+                    <div class="left_topheader">
+                        <a class="help_topheader" href="#"><i class="fa-solid fa-circle-question"></i> Trợ giúp</a>&nbsp;&nbsp;&nbsp;
+                        <a class="sale_topheader" href="#"><i class="fa-solid fa-gift"></i> Ưu đãi & tiện ích</a>&nbsp;&nbsp;&nbsp;
+                        <a class="promotion" href="#"><i class="fa-solid fa-bell"></i> Thông báo</a>
+                    </div>
+                    <div class="right_topheader">
+                        <ul class="menu_topheader">
+                            <li><a th:href="@{/login}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a></li>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><a th:href="@{/register}"><i class="fa-solid fa-user-shield"></i> Đăng kí</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="right_topheader">
-          <ul class="menu_topheader">
-            <li><a href="/users/dangnhap.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a></li>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <li><a href="/users/dangki.html"><i class="fa-solid fa-user-shield"></i> Đăng kí</a></li>
-          </ul>
+    </div>
+
+    <!--bottom header-->
+    <div id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 img-header">
+                    <a th:href="@{/}">
+                        <img src="/img/logo.jpg" alt="Nhasach247">
+                    </a>
+                </div>
+
+                <div class="col-6 search_header">
+                    <form class="d-flex">
+                        <input id="import" type="text" placeholder="Bạn cần tìm gì ?">
+                        <i id="icon-input" class="fa-solid fa-magnifying-glass"></i>
+                        <button class="search" type="button" onclick="kiemtra()">Search</button>
+                    </form>
+                </div>
+
+                <div class="col-3 cart-header">
+                    <div class="dropdown cart">
+                        <button type="button" class="btn">
+                            <a th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (0)</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
+    <!--end header-->
 
-<!--bottom header-->
-<div id="header">
-  <div class="container">
-    <div class="row">
-      <div class="col-3 img-header">
-        <a href="/index.html">
-          <img src="/img/logo/logo.jpg" alt="Nhasach247">
-        </a>
-      </div>
-
-      <div class="col-6 search_header">
-          <form class="d-flex">
-            <input class="import" type="text" placeholder="Bạn cần tìm gì ?">
-            <i id="icon-input" class="fa-solid fa-magnifying-glass"></i>
-            <button class="search" type="button">Search</button>
-          </form> 
-      </div>
-
-      <div class="col-3 cart-header">
-        <div class="dropdown cart">
-          <button type="button" class="btn">
-            <a href="/users/giohang.html"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (3)</a>
-          </button>
+    <!--start menu-->
+    <div id="menu">
+        <div class="container">
+            <nav>
+                <ul id="main-menu">
+                    <li>
+                        <a th:href="@{/}"><i class="fa-solid fa-house" style="color: #00cc66"></i> Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="#" style="font-weight: 600;">Danh mục sản phẩm</a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#">+ Nổi bật</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Sách mới</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sắp phát hành</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sách bán chạy</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sachchuyennganh.html">+ Sách chuyên ngành</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Chính trị - Triết học</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Công nghệ thông tin</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Khoa học tự nhiên</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Lịch sử - Địa lý</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Mỹ thuật - Kiến trúc</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Khoa học xã hội</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sachkinhte.html">+ Sách kinh tế</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Bài học kinh doanh</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Doanh nhân - Tập đoàn</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Khởi nghiệp</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Kinh tế học</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Kỹ năng làm việc</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Marketing - Bán hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Tài chính - Kế toán</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/vanhoctrongnuoc.html">+ Văn học trong nước</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Tiểu thuyết</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Truyện ngắn - Tản văn</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Thơ</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Huyền bí - Giả tưởng</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Phóng sự - Ký sự</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Trinh thám - Kinh dị</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Tiểu sử - Hồi ký</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/hocngoaingu.html">+ Học ngoại ngữ</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Từ điển</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sách học tiếng Anh</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sách học tiếng Nhật</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Sách học tiếng Hoa</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sach-ky-nang-song.html">+ Sách kĩ năng sống</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Kỹ năng sống</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Nghệ thuật sống đẹp</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sach-thieu-nhi.html">+ Sách thiếu nhi</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Truyện cổ tích - Thần thoại</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Kĩ năng - Kiến thức</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Vừa học - Vừa chơi</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Văn học</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Truyện kể cho bé</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="/danhmuc/1/sach-tuoi-teen.html">+ Sách tuổi teen</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="">Hướng nghiệp - Kĩ năng</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Văn học teen</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Light Novel</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Truyện tranh - Comic</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a th:href="@{/pages/blog}" style="font-weight: 600;">Blog</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/pages/intro}" style="font-weight: 600;">Giới thiệu</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/pages/contact}" style="font-weight: 600;">Liên hệ</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-      </div> 
     </div>
-  </div>
-</div>
-    <!--end header-->  
-
-<!--start menu-->
-<div id="menu">
-    <div class="container">
-      <nav>
-        <ul id="main-menu">
-          <li>
-            <a href="/index.html"><i class="fa-solid fa-house" style="color: #00cc66"></i> Trang chủ</a>
-          </li>
-          <li>
-            <a href="#" style="font-weight: 600;">Danh mục sản phẩm</a>
-            <ul class="sub-menu">
-                <li>
-                    <a href="#">+ Nổi bật</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">Sách mới</a>
-                        </li>
-                        <li>
-                            <a href="">Sắp phát hành</a>
-                        </li>
-                        <li>
-                            <a href="">Sách bán chạy</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/danhmuc/1/sachchuyennganh.html">+ Sách chuyên ngành</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">Chính trị - Triết học</a>
-                        </li>
-                        <li>
-                            <a href="">Công nghệ thông tin</a>
-                        </li>
-                        <li>
-                            <a href="">Khoa học tự nhiên</a>
-                        </li>
-                        <li>
-                            <a href="">Lịch sử - Địa lý</a>
-                        </li>
-                        <li>
-                            <a href="">Mỹ thuật - Kiến trúc</a>
-                        </li>
-                        <li>
-                            <a href="">Khoa học xã hội</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/danhmuc/1/sachkinhte.html">+ Sách kinh tế</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">Bài học kinh doanh</a>
-                        </li>
-                        <li>
-                            <a href="">Doanh nhân - Tập đoàn</a>
-                        </li>
-                        <li>
-                            <a href="">Khởi nghiệp</a>
-                        </li>
-                        <li>
-                            <a href="">Kinh tế học</a>
-                        </li>
-                        <li>
-                            <a href="">Kỹ năng làm việc</a>
-                        </li>
-                        <li>
-                            <a href="">Marketing - Bán hàng</a>
-                        </li>
-                        <li>
-                            <a href="">Tài chính - Kế toán</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/danhmuc/1/vanhoctrongnuoc.html">+ Văn học trong nước</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">Tiểu thuyết</a>
-                        </li>
-                        <li>
-                            <a href="">Truyện ngắn - Tản văn</a>
-                        </li>
-                        <li>
-                            <a href="">Thơ</a>
-                        </li>
-                        <li>
-                            <a href="">Huyền bí - Giả tưởng</a>
-                        </li>
-                        <li>
-                            <a href="">Phóng sự - Ký sự</a>
-                        </li>
-                        <li>
-                            <a href="">Trinh thám - Kinh dị</a>
-                        </li>
-                        <li>
-                            <a href="">Tiểu sử - Hồi ký</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/danhmuc/1/hocngoaingu.html">+ Học ngoại ngữ</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">Từ điển</a>
-                        </li>
-                        <li>
-                            <a href="">Sách học tiếng Anh</a>
-                        </li>
-                        <li>
-                            <a href="">Sách học tiếng Nhật</a>
-                        </li>
-                        <li>
-                            <a href="">Sách học tiếng Hoa</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/danhmuc/1/sach-ky-nang-song.html">+ Sách kĩ năng sống</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">Kỹ năng sống</a>
-                        </li>
-                        <li>
-                            <a href="">Nghệ thuật sống đẹp</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/danhmuc/1/sach-thieu-nhi.html">+ Sách thiếu nhi</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">Truyện cổ tích - Thần thoại</a>
-                        </li>
-                        <li>
-                            <a href="">Kĩ năng - Kiến thức</a>
-                        </li>
-                        <li>
-                            <a href="">Vừa học - Vừa chơi</a>
-                        </li>
-                        <li>
-                            <a href="">Văn học</a>
-                        </li>
-                        <li>
-                            <a href="">Truyện kể cho bé</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/danhmuc/1/sach-tuoi-teen.html">+ Sách tuổi teen</a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a href="">Hướng nghiệp - Kĩ năng</a>
-                        </li>
-                        <li>
-                            <a href="">Văn học teen</a>
-                        </li>
-                        <li>
-                            <a href="">Light Novel</a>
-                        </li>
-                        <li>
-                            <a href="">Truyện tranh - Comic</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-          </li>
-          <li>
-            <a href="/overview/blog.html" style="font-weight: 600;">Blog</a>
-          </li>
-          <li>
-            <a href="/overview/gioithieu.html" style="font-weight: 600;">Giới thiệu</a>
-          </li>
-          <li>
-            <a href="/overview/lien-he.html" style="font-weight: 600;">Liên hệ</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-</div>
-<!--end menu-->
 
 <!--hellayout-->
     <div id="ck-body">
