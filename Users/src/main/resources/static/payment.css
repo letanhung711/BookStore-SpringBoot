@@ -188,24 +188,45 @@ nav #main-menu li:hover a{
     content: "/";
 }
 /*  */
+.pay-qr{
+    text-align: center;
+}
+.payment-title {
+    font-size: 1.5rem;
+    float: left;
+}
 .img-qr{
-    width: 85%;
+    width: 80%;
     margin: 0 auto;
 }
-section {
-    margin-right: 20px;
+.payment-info{
+    font-size: 14px;
+    width: 100%;
 }
-
-label, input {
-    margin-bottom: 10px;
+.customer-lbinput{
+    width: 100%;
+    margin-bottom: 20px;
+    display: grid;
+}
+input.payment-input{
+    height: 45px;
+}
+.payment-input{
+    padding: 5px;
+    background: rgba(192,192,192,0.5);
+    border: none;
 }
 button.checkout-button {
-    background-color: #007bff;
+    background-color: #00cc66;
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+button.checkout-button:hover{
+    background: rgb(0,204,102,0.8);
+    color: white;
 }
 
 

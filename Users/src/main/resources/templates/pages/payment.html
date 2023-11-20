@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
@@ -16,8 +17,6 @@
 <body>
 
 <div class="container">
-
-  <!--start header-->
   <!--top header-->
   <div class="topheader">
     <div class="container">
@@ -61,14 +60,13 @@
         <div class="col-3 cart-header">
           <div class="dropdown cart">
             <button type="button" class="btn">
-              <a th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (0)</a>
+              <a th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
             </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--end header-->
 
   <!--start menu-->
   <div id="menu">
@@ -250,7 +248,6 @@
       </nav>
     </div>
   </div>
-  <!--end menu-->
 
   <!-- Breadcrumbs -->
   <div class="container p-0">
@@ -270,42 +267,31 @@
   </div>
 
   <div class="row">
-    <div class="col-6">
-      <h2>Thanh toán qua mã QR</h2>
+    <div class="col-6 pay-qr">
+      <h1 class="payment-title">THANH TOÁN QUA MÃ QR</h1>
       <img class="img-qr" th:src="@{'https://img.vietqr.io/image/VCB-1017662867-compact2.png?' +
-                'amount=' + ${total} +
-                '&addInfo= Đơn hàng: ' + ${madonhang} +
-                '&accountName=LE TAN HUNG'" />
+                'amount=' + ${totalAmount} +
+                '&addInfo= Thanh toán đơn hàng: ' +
+                '&accountName=LE TAN HUNG'}" />
     </div>
     <div class="col-6">
       <section class="payment-details">
-        <h2>Thông tin thanh toán</h2>
-        <form class="d-flex flex-column">
-          <label>Tên khách hàng:</label>
-          <input type="text" required>
+        <h1 class="payment-title">THÔNG TIN THANH TOÁN</h1>
+        <form class="d-flex flex-column payment-info" action="">
+          <div class="customer-lbinput">
+            <label>Tên khách hàng</label>
+            <input class="payment-input" type="text" th:value="${customerName}" readonly>
+          </div>
+          <div class="customer-lbinput">
+            <label>Số điện thoại</label>
+            <input class="payment-input" type="text" th:value="${customerPhone}" readonly>
+          </div>
+          <div class="customer-lbinput">
+            <label>Địa chỉ</label>
+            <textarea class="payment-input" th:text="${customerAddress}" readonly></textarea>
+          </div>
 
-          <label>Email:</label>
-          <input type="text" required>
-
-          <label>Số điện thoại:</label>
-          <input type="text" required>
-
-          <label>Địa chỉ:</label>
-          <input type="text" required>
-
-          <form>
-            <label for="paymentMethod">Chọn phương thức thanh toán:</label>
-            <select id="paymentMethod" name="paymentMethod" style="width: 200px">
-              <option value="momo">Thẻ tín dụng</option>
-              <option value="momo">Momo</option>
-              <option value="paypal">PayPal</option>
-              <option value="cash">Thanh toán bằng tiền mặt</option>
-            </select>
-          </form>
-
-          <br>
-
-          <button class="checkout-button">Thanh toán</button>
+          <button type="submit" class="btn btn-primary checkout-button">Tôi đã thanh toán</button>
         </form>
       </section>
     </div>
@@ -387,3 +373,5 @@
     </div>
   </div>
 </div>
+</body>
+</html>

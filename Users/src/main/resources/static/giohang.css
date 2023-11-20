@@ -191,16 +191,65 @@ nav #main-menu li:hover a{
 .h-custom{
     min-height: 50vh;
 }
-.payment-details{
-    width: 80%;
-    margin: 0 auto;
+table.cart-table {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
 }
-
-.btn-pay{
-    background-color: #00cc66;
+thead.cart-header {
+    vertical-align: middle;
+}
+img.cart-img{
+    width: 35px;
+    height: 45px;
+}
+.total-amount{
+    display: flex;
     float: right;
-    margin-right: 10px;
+}
+.total-amount .total-text{
+    padding: 0px 15px 0px 0px;
+    margin: 0;
+}
+.total-amount .amount-money{
+    font-weight: 600;
+}
+.return-home{
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+}
+.return-home:hover{
+    color: #00cc66;
+}
+.customer-infor{
+    border-left: 1px solid #dee2e6;
+}
+.purchase-infor{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.purchase-infor .purchase-text{
+    font-size: 20px;
+    font-weight: bold;
+}
+.customer-lbinput{
+    width: 100%;
+    margin-bottom: 10px;
+    display: grid;
+}
+textarea{
+    min-height: 50px;
+}
+.btn-payment{
+    background: #00cc66;
     border: none;
+    font-weight: 600;
+}
+.btn-payment:hover{
+    background: rgb(0,204,102,0.8);
+    color: white;
 }
 
 /*footer*/

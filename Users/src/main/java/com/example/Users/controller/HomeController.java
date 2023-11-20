@@ -23,17 +23,4 @@ public class HomeController {
         model.addAttribute("topProducts",topProducts);
         return "index";
     }
-    @GetMapping("/cart")
-    public String cart(Model model){
-        model.addAttribute("title","Giỏ hàng");
-        return "cart";
-    }
-    @GetMapping("/pages/payment")
-    public String payment(@RequestParam(name = "totalAmount", defaultValue = "0") int totalAmount,
-            @RequestParam(name = "MaDH", defaultValue = "") String madonhang, Model model){
-        model.addAttribute("title","Thanh toán");
-        model.addAttribute("total", totalAmount);
-        model.addAttribute("madonhang", madonhang);
-        return "/pages/payment";
-    }
 }

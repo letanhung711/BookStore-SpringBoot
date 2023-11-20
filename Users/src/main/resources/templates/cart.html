@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -18,8 +19,6 @@
 <body>
 
 <div class="container">
-
-    <!--start header-->
     <!--top header-->
     <div class="topheader">
       <div class="container">
@@ -70,7 +69,6 @@
         </div>
       </div>
     </div>
-    <!--end header-->
 
     <!--start menu-->
     <div id="menu">
@@ -252,7 +250,6 @@
           </nav>
         </div>
       </div>
-    <!--end menu-->
 
     <!-- Breadcrumbs -->
     <div class="container p-0">
@@ -273,123 +270,184 @@
 
     <!--cart-->
     <section class="h-custom">
-      <div class="container">
-          <div class="cart">
-              <table class="table table-striped" id="table_pay">
-                  <thead class="bg-dark text-white">
-                      <tr>
-                          <th scope="col">STT</th>
-                          <th scope="col">Ảnh sản phẩm</th>
-                          <th scope="col">Tên sản phẩm</th>
-                          <th scope="col">Đơn giá</th>
-                          <th scope="col">Số lượng</th>
-                          <th scope="col">Thành tiền</th>
-                          <th scope="col">Hành động</th>
-                      </tr>
-                  </thead>
-                  <tbody style="text-align: center;">
-                      <tr>
-                          <th>1</th>
-                          <td><img style="width:45px;height: 60px;" src="/img/sanpham/sachmoi/co-ban-la-co-ban.png" alt="Product image"></td>
-                          <td class="product-name">Bạn không thông minh lắm đâu</td>
-                          <td class="product-price">1000đ</td>
-                          <td style="width: 70px;">
-                              <input id="form1" min="0" name="quantity" value="1" type="number"
-                                     class="form-control form-control-sm" />
-                          </td>
-                          <td>1000</td>
-                          <td style="vertical-align: middle;">
-                              <a class="btn btn-sm btn-danger" onclick="removeRow(this)">Xóa</a>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>Tổng tiền:</td>
-                          <td><span id="tongTien">0</span></td>
-                          <script>
-                            tinhTongTien();
-                          </script>
-                      </tr>
-                  </tbody>
-              </table>
-              <a th:href="@{/}">-> Quay lại</a>
-              <a class="btn btn-primary btn-pay" th:href="@{/pages/payment}">Thanh toán</a>
-          </div>
-      </div>
+        <div class="cart">
+            <form th:action="@{/pages/payment}">
+                <div class="row">
+                    <div class="col-8">
+                        <table class="cart-table table table-striped" id="table_pay">
+                            <thead class="cart-header bg-dark text-white">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Ảnh sản phẩm</th>
+                                <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Đơn giá</th>
+                                <th scope="col">Số lượng</th>
+                                <th scope="col">Thành tiền</th>
+                                <th scope="col">Hành động</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Dòng sản phẩm của bạn -->
+                            <tr>
+                                <th>1</th>
+                                <td><img class="cart-img" src="/img/sanpham/sachmoi/co-ban-la-co-ban.png"></td>
+                                <td class="product-name">Bạn không thông minh lắm đâu</td>
+                                <td class="product-price">1000</td>
+                                <td style="width: 70px;">
+                                    <input min="1" name="quantity" value="1" type="number" class="form-control form-control-sm" />
+                                </td>
+                                <td>0</td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger" onclick="removeRow(this)">Xóa</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <td><img class="cart-img" src="/img/sanpham/sachmoi/co-ban-la-co-ban.png"></td>
+                                <td class="product-name">Bạn không thông minh lắm đâu</td>
+                                <td class="product-price">8000</td>
+                                <td style="width: 70px;">
+                                    <input min="1" name="quantity" value="1" type="number" class="form-control form-control-sm" />
+                                </td>
+                                <td>0</td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger" onclick="removeRow(this)">Xóa</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <a class="return-home" th:href="@{/}"><i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ</a>
+
+                        <!--total amount-->
+                        <div class="total-amount">
+                            <p class="total-text">Tổng tiền:</p>
+                            <span class="amount-money" id="tongTien">0</span>
+                        </div>
+                    </div>
+                    <div class="col-4 customer-infor">
+                        <div class="purchase-infor">
+                            <h1 class="purchase-text">THÔNG TIN THANH TOÁN</h1>
+                            <!-- Dòng nhập tên khách hàng -->
+                            <div class="customer-lbinput">
+                                <label for="customerName">Tên khách hàng</label>
+                                <input type="text" id="customerName" name="customerName" required>
+                            </div>
+                            <!-- Dòng nhập sdt -->
+                            <div class="customer-lbinput">
+                                <label for="customerPhone">Số điện thoại</label>
+                                <input type="tel" id="customerPhone" name="customerPhone" required oninput="return validatePhoneNumber()">
+                            </div>
+                            <!-- Dòng nhập địa chỉ -->
+                            <div class="customer-lbinput">
+                                <label for="customerAddress">Địa chỉ</label>
+                                <textarea type="text" id="customerAddress" name="customerAddress" required></textarea>
+                            </div>
+                            <!-- Dòng chọn phương thức thanh toán -->
+                            <div class="customer-lbinput">
+                                <form>
+                                    <label for="paymentMethod">Chọn phương thức thanh toán</label>
+                                    <select id="paymentMethod" name="paymentMethod">
+                                        <option value="credit-card">Thẻ tín dụng</option>
+                                        <option value="momo">Momo</option>
+                                        <option value="cash">Thanh toán bằng tiền mặt</option>
+                                    </select>
+                                </form>
+                            </div>
+
+                            <div class="customer-lbinput">
+                                <button type="submit" class="btn btn-primary btn-payment" id="paymentButton">Thanh toán</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
-
     <br>
-
     <!--footer-->
     <div id="footer">
-      <div class="container-fluid container-footer">
-        <div class="row">
-          <!--liên hệ-->
-          <div class="col-3 footer-post">
-            <ul>
-              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Thông Tin Liên Hệ</li>
-              <li>
-                Hotline:
-                <b style="color: #00cc66;">0818 385 099</b>
-              </li>
-              <li>Email: nhasach247@ga.vn</li>
-            </ul>
-          </div>
-          <!--tài khoản-->
-          <div class="col-3 footer-post">
-            <ul>
-              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Tài Khoản</li>
-              <li>
-                <a href="#" title="Tài khoản">Tài khoản</a>
-              </li>
-              <li>
-                <a href="#" title="Danh sách đơn hàng">Danh sách đơn hàng</a>
-              </li>
-              <li>
-                <a href="#" title="Thông báo">Thông báo</a>
-              </li>
-              <li>
-                <a href="#" title="Lịch sử giao dịch">Lịch sử giao dịch</a>
-              </li>
-            </ul>
-          </div>
-          <!--trợ giúp-->
-          <div class="col-3 footer-post">
-            <ul>
-              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Trợ giúp</li>
-              <li>
-                <a href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a>
-              </li>
-              <li>
-                <a href="/overview/payment-methods.html" title="Phương thức thanh toán">Phương thức thanh toán</a>
-              </li>
-              <li>
-                <a href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
-              </li>
-              <li>
-                <a href="/overview/cau-hoi-thuong-gap.html" title="Câu hỏi thường gặp (FAQs)">Câu hỏi thường gặp (FAQs)</a>
-              </li>
-            </ul>
-          </div>
+        <div class="container-fluid container-footer">
+            <div class="row">
+                <!--liên hệ-->
+                <div class="col-3 footer-post">
+                    <ul>
+                        <li style="text-transform: uppercase; color: #111; font-weight: 500;">Thông Tin Liên Hệ</li>
+                        <li>
+                            Hotline:
+                            <b style="color: #00cc66;">0818 385 099</b>
+                        </li>
+                        <li>Email: nhasach247@ga.vn</li>
+                    </ul>
+                </div>
+                <!--tài khoản-->
+                <div class="col-3 footer-post">
+                    <ul>
+                        <li style="text-transform: uppercase; color: #111; font-weight: 500;">Tài Khoản</li>
+                        <li>
+                            <a href="#" title="Tài khoản">Tài khoản</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Danh sách đơn hàng">Danh sách đơn hàng</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Thông báo">Thông báo</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Lịch sử giao dịch">Lịch sử giao dịch</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--trợ giúp-->
+                <div class="col-3 footer-post">
+                    <ul>
+                        <li style="text-transform: uppercase; color: #111; font-weight: 500;">Trợ giúp</li>
+                        <li>
+                            <a href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a>
+                        </li>
+                        <li>
+                            <a href="/overview/payment-methods.html" title="Phương thức thanh toán">Phương thức thanh toán</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
+                        </li>
+                        <li>
+                            <a href="/overview/cau-hoi-thuong-gap.html" title="Câu hỏi thường gặp (FAQs)">Câu hỏi thường gặp (FAQs)</a>
+                        </li>
+                    </ul>
+                </div>
 
-          <!--xã hội-->
-          <div class="col-3 footer-post">
-            <ul>
-              <li style="text-transform: uppercase; color: #111; font-weight: 500;">Mạng xã hội</li>
-              <li>
-                <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i> Nhasach247</a>
-              </li>
-              <li>
-                <a href="https://www.facebook.com/nhasach247ga" title="Facebook"><i class="fa-brands fa-facebook" style="color: #1877f2"></i> Nhasach247.ga</a>
-              </li>
-            </ul>
-          </div>
-        </div>
+                <!--xã hội-->
+                <div class="col-3 footer-post">
+                    <ul>
+                        <li style="text-transform: uppercase; color: #111; font-weight: 500;">Mạng xã hội</li>
+                        <li>
+                            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i> Nhasach247</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Facebook"><i class="fa-brands fa-facebook" style="color: #1877F2"></i> Nhasach247.ga</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-        <div class="row">
-          <div class="col-12">
-            <div style="text-align: center; border-top: 1px solid white;"> Copyright © 2022 Nhasach247.ga</div>
-          </div>
+            <div class="row">
+                <div class="col-12">
+                    <div style="text-align: center; border-top: 1px solid white;"> Copyright © 2023 Nhasach247</div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 </div>
+</body>
+<script>
+    // Lấy danh sách tất cả các trường số lượng
+    const quantityInputs = document.querySelectorAll('input[name="quantity"]');
+
+    // Thêm sự kiện onchange cho tất cả trường số lượng để tính tổng tiền khi số lượng thay đổi
+    quantityInputs.forEach(function(input) {
+        input.addEventListener('change', tinhTongTien);
+    });
+    tinhTongTien();
+</script>
+</html>
