@@ -9,7 +9,7 @@ public class ProductDto {
     private String name;
     private String author;
     private Double price;
-    private String quantity;
+    private Integer quantity;
     private String note;
     private String imageUrl;
     private String create_time;

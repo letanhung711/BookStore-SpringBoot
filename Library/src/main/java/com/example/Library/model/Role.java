@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @AllArgsConstructor @NoArgsConstructor @Data
 @Entity
@@ -12,7 +13,10 @@ import javax.persistence.*;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_role")
+    @Column(name = "role_id")
     private Long id;
     private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private Collection<Users> users;
 }

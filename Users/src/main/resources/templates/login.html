@@ -18,7 +18,6 @@
 <body>
 <div class="container">
 
-<!--start header-->
 <!--top header-->
 <div class="topheader">
   <div class="container">
@@ -62,14 +61,13 @@
       <div class="col-3 cart-header">
         <div class="dropdown cart">
           <button type="button" class="btn">
-            <a th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (0)</a>
+            <a th:href="@{/cart}"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
           </button>
         </div>
       </div> 
     </div>
   </div>
 </div>
-<!--end header-->  
 
   <!--start menu-->
   <div id="menu">
@@ -251,7 +249,6 @@
       </nav>
     </div>
   </div>
-<!--end menu-->
 
 <!-- Breadcrumbs -->
 <div class="container p-0">
@@ -288,22 +285,22 @@
                     </div>
                     
                     <div class="col-md-8 login-form">
-                        <form class="modal-content animate" action="#" method="post">
+                        <form class="modal-content animate" action="/login" method="post" th:object="${loginRequest}">
                           <div class="namecontainer">
                             <P>Đăng nhập</P>
                           </div>
                       
                           <div class="logincontainer">
-                            <label><b>Tên đăng nhập</b></label>
-                            <input type="text" placeholder="Nhập Tên đăng nhập" name="uname" required>
+                            <label for="username"><b>Tên đăng nhập</b></label>
+                            <input type="text" id="username" name="username" placeholder="Nhập Tên đăng nhập" required>
                       
-                            <label><b>Mật khẩu</b></label>
-                            <input type="password" placeholder="Nhập Mật khẩu" name="psw" required>
+                            <label for="password"><b>Mật khẩu</b></label>
+                            <input type="password" id="password" name="password" placeholder="Nhập Mật khẩu"  required>
                               
                             <button style="font-size:15px;" type="submit">Đăng nhập</button>
                             <span class="psw"><a href="#">Quên mật khẩu?</a></span>
                           </div>
-                      
+
                           <div class="logincontainer">
                             <div class="vl">
                               <span class="vl-innertext">Hoặc</span>

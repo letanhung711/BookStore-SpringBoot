@@ -384,7 +384,7 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <!-- Lặp qua danh sách sản phẩm và hiển thị mỗi sản phẩm trong một slide -->
-                    <div class="swiper-slide" th:each="product: ${topProducts}">
+                    <div class="swiper-slide" th:each="product: ${products}">
                         <div class="product-item">
                             <div class="product-top">
                                 <a th:href="@{'/product/' + ${product.id}}" class="product-thumb">
@@ -409,7 +409,7 @@
     <div class="wow bounceInUp">
         <div class="headline">
             <h3>
-                <a class="title" href="#" title="Sách Mới">Sách Mới</a>
+                <a class="title" href="#" title="Ưu đãi trong ngày">Ưu đãi trong ngày</a>
                 <a class="more" href="#" title="Xem thêm">Xem Thêm</a>
             </h3>
         </div>

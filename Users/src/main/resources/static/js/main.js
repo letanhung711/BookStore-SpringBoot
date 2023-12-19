@@ -63,7 +63,6 @@
         prevEl: ".swiper-button-prev",
       },
     });
-
 //--------------------------------------------------------------------------
     //backtop
     mybacktop = document.getElementById("backtop");
@@ -81,7 +80,6 @@
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
-
 //--------------------------------------------------------------------------
     //dark-mode
     var darkmode =document.getElementById("darkmode");
@@ -108,35 +106,6 @@
             prevEl: ".swiper-button-prev",
         },
     });
-
-//--------------------------------------------------------------------------
-//tính tổng tiền trong giỏ hàng
-function tinhTongTien() {
-    var table = document.getElementById("table_pay");
-    var rows = table.rows;
-    var total = 0;
-
-    for (var i = 1; i < rows.length - 1; i++) {
-        var cellQuantity = rows[i].querySelector('input[name="quantity"]');
-        var cellPrice = rows[i].cells[3];
-        var cellTotal = rows[i].cells[5];
-        var quantity = parseInt(cellQuantity.value, 10);
-        var price = parseInt(cellPrice.textContent.replace(' VND', '').trim(), 10);
-        var subtotal = quantity * price;
-        cellTotal.textContent = subtotal + ' VND';
-        total += subtotal;
-    }
-    document.getElementById("tongTien").textContent = total + ' VND';
-}
-//--------------------------------------------------------------------------
-//Xóa dòng trong giỏ hàng
-    function removeRow(button) {
-        // Xác định dòng (sản phẩm) cần xóa
-        var row = button.parentNode.parentNode;
-        row.remove();
-        // Gọi hàm tính tổng tiền để cập nhật tổng sau khi xóa dòng
-        tinhTongTien();
-    }
 //--------------------------------------------------------------------------
 //Kiểm tra sdt trong form cart
     function validatePhoneNumber() {
@@ -150,15 +119,7 @@ function tinhTongTien() {
         return true;
     }
 //--------------------------------------------------------------------------
-document.getElementById('paymentButton').get.addEventListener('click', function() {
-    //Lấy số tổng tiền
-    var totalText = document.getElementById('tongTien').innerText;
-    var totalWithoutVND = totalText.replace(' VND', '').trim();
-    var total = parseInt(totalWithoutVND, 10);
 
-    // Chuyển hướng đến trang thanh toán với tham số totalAmount
-    window.location.href = '/pages/payment?totalAmount=' + total;
-});
 
 
 

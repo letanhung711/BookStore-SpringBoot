@@ -2,6 +2,7 @@ package com.example.Users.config;
 
 import com.example.Library.model.Users;
 import com.example.Library.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,12 +11,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import java.util.stream.Collectors;
 
 public class UserServiceConfig implements UserDetailsService {
+    @Autowired
     private UserRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users user = userRepository.findByUsername(username);
         if(user == null){
-            throw new UsernameNotFoundException("Could not find username");
+            throw new UsernameNotFoundException("User not found with username: " + username);
         }
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),

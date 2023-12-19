@@ -12,11 +12,18 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
+
+    @Override
+    public Optional<Product> getProductInformation(Long id) {
+        return productRepository.findById(id);
+    }
+
     @Override
     public String addProduct(ProductDto productDto) {
         Product product =new Product();
