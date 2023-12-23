@@ -23,9 +23,9 @@
       <div class="mainbox">
         <div class="row">
           <div class="left_topheader">
-            <a class="help_topheader" href=""><i class="fa-solid fa-circle-question"></i> Trợ giúp</a>&nbsp;&nbsp;&nbsp;
-            <a class="sale_topheader" href=""><i class="fa-solid fa-gift"></i> Ưu đãi & tiện ích</a>&nbsp;&nbsp;&nbsp;
-            <a class="promotion" href=""><i class="fa-solid fa-bell"></i> Thông báo</a>
+            <a class="help_topheader" href="#"><i class="fa-solid fa-circle-question"></i> Trợ giúp</a>&nbsp;&nbsp;&nbsp;
+            <a class="sale_topheader" href="#"><i class="fa-solid fa-gift"></i> Ưu đãi & tiện ích</a>&nbsp;&nbsp;&nbsp;
+            <a class="promotion" href="#"><i class="fa-solid fa-bell"></i> Thông báo</a>
           </div>
           <div class="right_topheader">
             <ul class="menu_topheader">
@@ -269,29 +269,31 @@
   <div class="row">
     <div class="col-6 pay-qr">
       <h1 class="payment-title">THANH TOÁN QUA MÃ QR</h1>
-      <img class="img-qr" th:src="@{'https://img.vietqr.io/image/TCB-19070550465018-compact2.png?' +
-                'amount= 1000' +
-                '&addInfo= Thanh toán đơn hàng: ' +
-                '&accountName=LE TAN HUNG'}" />
+      <img th:src="${imageUrl}" alt="Mã QR" style="width: 80%;">
     </div>
     <div class="col-6">
       <section class="payment-details">
         <h1 class="payment-title">THÔNG TIN THANH TOÁN</h1>
         <form class="d-flex flex-column payment-info" action="">
           <div class="customer-lbinput">
-            <label>Tên khách hàng</label>
-            <input class="payment-input" type="text" th:value="${customerName}" readonly>
+            <label>Số tài khoản</label>
+            <input class="payment-input" type="text" value="19070550465018" readonly>
           </div>
           <div class="customer-lbinput">
-            <label>Số điện thoại</label>
-            <input class="payment-input" type="text" th:value="${customerPhone}" readonly>
+            <label>Tên người thụ hưởng</label>
+            <input class="payment-input" type="text" value="LE TAN HUNG" readonly>
           </div>
           <div class="customer-lbinput">
-            <label>Địa chỉ</label>
-            <textarea class="payment-input" th:text="${customerAddress}" readonly></textarea>
+            <label>Số tiền chuyển khoản</label>
+            <input class="payment-input" type="text" th:value="${AMOUNT}" readonly>
+          </div>
+          <div class="customer-lbinput">
+            <label>Nội dụng chuyển khoản</label>
+            <input class="payment-input" type="text" th:value="${DESCRIPTION}" readonly>
           </div>
 
-          <button type="submit" class="btn btn-primary checkout-button">Tôi đã thanh toán</button>
+          <button type="submit" class="btn checkout-button">Tôi đã thanh toán</button>
+          <a th:href="@{/}" style="text-decoration: none;text-align: center;"> Trở về trang chủ </a>
         </form>
       </section>
     </div>

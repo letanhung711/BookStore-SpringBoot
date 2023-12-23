@@ -2,6 +2,8 @@ package com.example.Library.service.Impl;
 
 import com.example.Library.dto.ProductDto;
 import com.example.Library.model.Product;
+import com.example.Library.model.ProductInfo;
+import com.example.Library.repository.ProductInfoRepository;
 import com.example.Library.repository.ProductRepository;
 import com.example.Library.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,11 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private ProductInfoRepository productInfoRepository;
 
     @Override
-    public Optional<Product> getProductInformation(Long id) {
+    public Optional<Product> getProductInformation(long id) {
         return productRepository.findById(id);
     }
 
@@ -40,13 +44,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String updateProduct(Long id, ProductDto productDto) {
+    public String updateProduct(long id, ProductDto productDto) {
         return null;
     }
 
     @Override
-    public String deleteProduct(Long id) {
+    public String deleteProduct(long id) {
         return null;
+    }
+
+    @Override
+    public Optional<ProductInfo> getInfoOfProduct(long id) {
+        Optional<Product> product = productRepository.findById(id);
+        return product.map(Product::getProductInfo);
     }
 
     public Timestamp convertToDate(String date){

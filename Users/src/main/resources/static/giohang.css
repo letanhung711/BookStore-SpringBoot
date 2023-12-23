@@ -246,6 +246,11 @@ textarea{
     background: #00cc66;
     border: none;
     font-weight: 600;
+    width: 100%;
+}
+.btn-payment a{
+    text-decoration: none;
+    color: white;
 }
 .btn-payment:hover{
     background: rgb(0,204,102,0.8);

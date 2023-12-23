@@ -1,13 +1,10 @@
 package com.example.Library.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.List;
 
 @Data @NoArgsConstructor @AllArgsConstructor
 @Entity
@@ -18,17 +15,13 @@ public class OrderDetail {
     @Column(name = "orderDetail_id")
     private Long id;
     private int quantity;
-    private double price;
-    private double totalPrice;
-    private Timestamp create_time;
+    private double unitPrice;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", referencedColumnName = "product_id")
-    @JsonBackReference
-    private Product products;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "order_id", referencedColumnName = "order_id")
-    @JsonBackReference
-    private Order orders;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 }

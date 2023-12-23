@@ -1,9 +1,6 @@
 package com.example.Library.service.Impl;
 
-import com.example.Library.dto.CartItem;
-import com.example.Library.dto.OrderDto;
-import com.example.Library.model.Order;
-import com.example.Library.model.Product;
+import com.example.Library.model.*;
 import com.example.Library.repository.OrderDetailRepository;
 import com.example.Library.repository.OrderRepository;
 import com.example.Library.repository.ProductRepository;
@@ -12,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -24,23 +20,45 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private ProductRepository productRepository;
     @Override
-    public String addOrder(OrderDto orderDto) {
+    public Order addOrder(Customer customer, String paymentMethod) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        List<Product> product = productRepository.findByName(orderDto.getTotalProduct());
-        if(product == null || product.isEmpty()){
-            return "Không có sản phẩm trong giỏ hàng";
-        }
-
         Order order = new Order();
+        order.setStatus(OrderStatus.CANCEL);
         order.setCreate_time(timestamp);
-        order.setNameCustomer(orderDto.getNameCustomer());
-        order.setPhone(orderDto.getPhone());
-        order.setAddress(orderDto.getAddress());
-        Order savedOrder = orderRepository.save(order);
-        if (savedOrder != null) {
-            return "Add order success";
-        } else {
-            return "Failed to add order";
+        if(paymentMethod == "cod") {
+            order.setPaymentMethods(PaymentMethods.COD);
+        }else {
+            order.setPaymentMethods(PaymentMethods.CREDIT_CARD);
         }
+        order.setCustomer(customer);
+        orderRepository.save(order);
+        return order;
     }
+
+    @Override
+    public Order updateOrder(long id, int total_quantity, double total_price) {
+        Optional<Order> optionalOrder = orderRepository.findById(id);
+        if(optionalOrder.isPresent()){
+            Order order = optionalOrder.get();
+            order.setTotalQuantity(total_quantity);
+            order.setTotalPrice(total_price);
+            orderRepository.save(order);
+            return order;
+        }
+        return null;
+    }
+
+    @Override
+    public Order updateStatus(long id) {
+        Optional<Order> optionalOrder = orderRepository.findById(id);
+        if(optionalOrder.isPresent()) {
+            Order order = optionalOrder.get();
+            order.setStatus(OrderStatus.CONFIRM);
+            orderRepository.save(order);
+            return order;
+        }
+        return null;
+    }
+
+
 }

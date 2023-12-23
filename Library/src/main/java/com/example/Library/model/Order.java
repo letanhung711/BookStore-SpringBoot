@@ -1,14 +1,11 @@
 package com.example.Library.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data @NoArgsConstructor @AllArgsConstructor
 @Entity
@@ -18,10 +15,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
-    private String nameCustomer;
-    private String address;
-    private String phone;
-    private String note;
+    private int totalQuantity;
+    private double totalPrice;
     private Timestamp create_time;
 
     @Enumerated(EnumType.STRING)
@@ -30,7 +25,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    @OneToMany(mappedBy = "orders")
-    @JsonManagedReference
-    private List<OrderDetail> orderDetails;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }

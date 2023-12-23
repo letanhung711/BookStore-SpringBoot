@@ -1,22 +1,20 @@
 package com.example.Library.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 
-@AllArgsConstructor @NoArgsConstructor @Data
+@Data @NoArgsConstructor @AllArgsConstructor
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private Long id;
+    private long id;
     private String name;
     private String author;
     private Double price;
@@ -26,10 +24,22 @@ public class Product {
     private Timestamp create_time;
     private Timestamp update_time;
 
-    @OneToMany(mappedBy = "products")
-    @JsonManagedReference
-    private List<OrderDetail> orderDetails;
-
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private ProductInfo productInfo;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", note='" + note + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", create_time=" + create_time +
+                ", update_time=" + update_time +
+                ", productInfo=" + (productInfo == null ? "null" : "{productInfo.id=" + productInfo.getId() + "}") +
+                '}';
+    }
 }

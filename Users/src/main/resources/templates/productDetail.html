@@ -285,7 +285,7 @@
             </div>
             <div class="status">
                 <div class="status-1">Trình trạng:&nbsp;</div>
-                <div class="status-2">Còn hàng</div>
+                <div class="status-2" th:text="${condition}"></div>
             </div>
             <div class="tags" style="margin: 8px 0;">
                 <div class="tags-title">Tags:&nbsp;</div>
@@ -335,7 +335,7 @@
                 </form>
             </div>
         </div>
-        <div class="detail">
+        <div class="detail" th:each="productInfo: ${productInfo}">
           <div class="detail-1">
             <div class="container-fluid">
               <div class="detail-left">
@@ -343,17 +343,23 @@
                 <div class="detail-left-1">
                   <ul>
                     <li class="item-p">
-                      Nhà xuất bản: 
-                      <a href="">NXB Thế Giới</a>
+                      Nhà xuất bản: <a href="#" th:text="${productInfo.nxb}"></a>
                     </li>
-                    <li class="item-p">Ngày xuất bản: 29/3/2022</li>
                     <li class="item-p">
-                      Nhà phát hành:
-                      <a href="">AZ Việt Nam</a>
+                        Ngày xuất bản: <p th:text="${productInfo.ngayxb}"></p>
                     </li>
-                    <li class="item-p">Kích thước: 13.0 x 19.0 x 1.5 cm</li>
-                    <li class="item-p">Số trang: 260 trang</li>
-                    <li class="item-p">Trọng lượng: 550 gram</li>
+                    <li class="item-p">
+                      Nhà phát hành: <a href="#" th:text="${productInfo.nhaphathanh}"></a>
+                    </li>
+                    <li class="item-p">
+                        Kích thước: <p th:text="${productInfo.size}"></p>
+                    </li>
+                    <li class="item-p">
+                        Số trang: <p th:text="${productInfo.numberPage}"></p>
+                    </li>
+                    <li class="item-p">
+                        Trọng lượng: <p th:text="${productInfo.weight}"></p>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -370,17 +376,7 @@
                   <p style="text-align: justify;">
                   <br>
                     <span style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
-                      <span style="font-size: 14px; line-height: 2em;">
-                        Sau khi lên cấp ba, bằng tinh thần chính nghĩa vốn có của mình, Kawahara Aoi đã ra mặt giúp
-                        đỡ một người bạn cùng lớp bị bắt nạt, kết cục cô lại trở thành nạn nhân tiếp theo thay thế 
-                        cho người bạn đó. Quá tuyệt vọng khi phải trải qua những ngày bị giày vò cả về thể xác lẫn 
-                        tinh thần ở trường, Aoi đi tới bờ sông, nơi có cây cầu bắc qua hai khu phố và chuẩn bị kết 
-                        thúc cuộc đời mình ở đó. Tuy nhiên Midori, một chàng trai có phong thái kỳ lạ đã bất ngờ 
-                        xuất hiện và ngăn cô lại. Kể từ đó, sau mỗi ngày hẹn gặp nhau ở bờ sông, trò chuyện và lắng
-                         nghe những lời khuyên của Midori, Aoi dần lấy lại được lòng dũng cảm và sự tự tin để đối 
-                         mặt với mọi chuyện. Tuy nhiên, đó cũng chính là lúc sự thật về Midori được phơi bày, mở ra
-                          đoạn hồi ức đau buồn thời thơ ấu của hai người mà cô đã vô tình lãng quên… 
-                      </span>
+                      <span style="font-size: 14px; line-height: 2em;" th:text="${productInfo.paragraph}"></span>
                     </span>
                   </p>
                 </div>

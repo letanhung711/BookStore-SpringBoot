@@ -385,6 +385,7 @@ nav #main-menu li:hover a{
 .detail .detail-1 .detail-left .detail-left-1 ul li {
     font-size: 14px;
     padding: 10px;
+    display: flex;
 }
 .detail .detail-1 .detail-left .detail-left-1 ul li:nth-child(2n+1) {
     background: #f7f7f7;

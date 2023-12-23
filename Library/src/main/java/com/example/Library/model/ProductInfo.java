@@ -19,9 +19,25 @@ public class ProductInfo {
     private String size;
     private String numberPage;
     private String weight;
+    @Column(columnDefinition = "LONGTEXT")
     private String paragraph;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
     private Product product;
+
+    @Override
+    public String toString() {
+        return "ProductInfo{" +
+                "id=" + id +
+                ", nxb='" + nxb + '\'' +
+                ", ngayxb='" + ngayxb + '\'' +
+                ", nhaphathanh='" + nhaphathanh + '\'' +
+                ", size='" + size + '\'' +
+                ", numberPage='" + numberPage + '\'' +
+                ", weight='" + weight + '\'' +
+                ", paragraph='" + paragraph + '\'' +
+                ", product=" + (product == null ? "null" : "{product.id=" + product.getId() + "}") +
+                '}';
+    }
 }

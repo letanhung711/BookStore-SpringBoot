@@ -317,7 +317,7 @@
                             <!-- Dòng nhập tên khách hàng -->
                             <div class="customer-lbinput">
                                 <label for="customerName">Tên khách hàng</label>
-                                <input type="text" id="customerName" name="customerName" required>
+                                <input type="text" id="customerName" name="customerName" placeholder="" required>
                             </div>
                             <!-- Dòng nhập sdt -->
                             <div class="customer-lbinput">
@@ -340,9 +340,7 @@
                                 </form>
                             </div>
 
-                            <div class="customer-lbinput">
-                                <button type="submit" class="btn btn-primary btn-payment" id="paymentButton">Thanh toán</button>
-                            </div>
+                            <button type="button" class="btn btn-payment" id="paymentButton" th:href="@{/pages/payment}">Thanh toán</button>
                         </div>
                     </div>
                 </div>
@@ -453,7 +451,7 @@
 //Lay du lieu
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('paymentButton').addEventListener('click', function(event) {
-        event.preventDefault(); // Ngăn chặn hành động mặc định của nút submit
+        event.preventDefault();
 
         // Lấy thông tin khách hàng từ form
         var nameCustomer = document.getElementById('customerName').value;
@@ -483,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Data to be sent:', orderData);
 
         // Sử dụng Fetch API để gửi dữ liệu đến trang thanh toán
-        fetch('/order/add', {
+        fetch('/pages/payment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -497,6 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error sending data to payment page:', error);
         });
+        window.location.href = '/pages/payment';
     });
 });
 </script>
