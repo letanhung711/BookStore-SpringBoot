@@ -28,6 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
             Customer customer = customerRepository.findByNumberPhone(customerDTO.getNumberPhone());
             customer.setNote(customer.getNote());
             customer.setAddress(customerDTO.getAddress());
+            customer.setEmail(customerDTO.getEmail());
             customerRepository.save(customer);
             return customer;
         }

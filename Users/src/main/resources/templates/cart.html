@@ -316,13 +316,18 @@
                             <h1 class="purchase-text">THÔNG TIN THANH TOÁN</h1>
                             <!-- Dòng nhập tên khách hàng -->
                             <div class="customer-lbinput">
-                                <label for="customerName">Tên khách hàng</label>
-                                <input type="text" id="customerName" name="customerName" placeholder="" required>
+                                <label for="customerName">Họ và Tên</label>
+                                <input type="text" id="customerName" name="customerName" placeholder="Ex: Bùi Thanh Tường" required>
+                            </div>
+                            <!-- Dòng nhập tên khách hàng -->
+                            <div class="customer-lbinput">
+                                <label for="customerEmail">Email</label>
+                                <input type="text" id="customerEmail" name="customerEmail" placeholder="Nhập email" required>
                             </div>
                             <!-- Dòng nhập sdt -->
                             <div class="customer-lbinput">
                                 <label for="customerPhone">Số điện thoại</label>
-                                <input type="tel" id="customerPhone" name="customerPhone" required oninput="return validatePhoneNumber()">
+                                <input type="tel" id="customerPhone" name="customerPhone" oninput="return validatePhoneNumber()" placeholder="Nhập số điện thoại" required>
                             </div>
                             <!-- Dòng nhập địa chỉ -->
                             <div class="customer-lbinput">
@@ -423,6 +428,18 @@
     </div>
 </div>
 <script>
+    //Kiểm tra sdt trong form cart
+    function validatePhoneNumber() {
+        var phoneNumber = document.getElementById('customerPhone').value;
+        var regex = /^[0-9]*$/; // Chỉ chấp nhận các ký tự số
+        if (!regex.test(phoneNumber)) {
+            alert('Vui lòng nhập số điện thoại hợp lệ.');
+            document.getElementById('customerPhone').value = "";
+            return false;
+        }
+        return true;
+    }
+
    document.addEventListener('DOMContentLoaded', function() {
        updateTotal();
        // Lắng nghe sự kiện thay đổi số lượng
@@ -448,13 +465,30 @@
        document.getElementById('tongTien').innerText = total + ' VND';
    }
 
-//Lay du lieu
-document.addEventListener('DOMContentLoaded', function() {
+    //Lay du lieu
     document.getElementById('paymentButton').addEventListener('click', function(event) {
-        event.preventDefault();
+
+         var formIsValid = true;
+
+        // Check email format using a regular expression
+        var emailValue = document.getElementById('customerEmail').value;
+        if (emailValue !== "") {
+            // Check email format using a regular expression
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailValue.match(emailPattern)) {
+                alert('Địa chỉ email không hợp lệ.');
+                formIsValid = false;
+            }
+        }
+
+        if (!formIsValid) {
+            event.preventDefault();
+            return;
+        }
 
         // Lấy thông tin khách hàng từ form
         var nameCustomer = document.getElementById('customerName').value;
+        var email = document.getElementById('customerEmail').value;
         var phone = document.getElementById('customerPhone').value;
         var address = document.getElementById('customerAddress').value;
         var paymentMethods = document.getElementById('paymentMethod').value;
@@ -473,6 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Tạo đối tượng chứa dữ liệu
         var orderData = {
             nameCustomer: nameCustomer,
+            email: email,
             phone: phone,
             address: address,
             paymentMethods: paymentMethods,
@@ -481,7 +516,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Data to be sent:', orderData);
 
         // Sử dụng Fetch API để gửi dữ liệu đến trang thanh toán
-        fetch('/pages/payment', {
+        fetch('/order/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -495,9 +530,8 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error sending data to payment page:', error);
         });
-        window.location.href = '/pages/payment';
+<!--        window.location.href = '/pages/payment';-->
     });
-});
 </script>
 </body>
 </html>

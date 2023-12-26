@@ -38,20 +38,27 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public Users addUser(UserDto userDto) {
+    public Users addUser(UserDto userDto) throws ParseException {
         Date dateNow = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         Users user = new Users();
         user.setFullname(userDto.getFullname());
         user.setAddress(userDto.getAddress());
         user.setPhone(userDto.getPhone());
         user.setEmail(userDto.getEmail());
-        user.setBirthdate(userDto.getBirthdate());
+        user.setBirthdate(dateFormat.parse(userDto.getBirthdate()));
         user.setUsername(userDto.getUsername());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setCreate_time(convertToDate(dateNow.toString()));
         return userRepository.save(user);
     }
+
+    @Override
+    public Users getEmailByUserName(String name) {
+        return userRepository.findEmailByUsername(name);
+    }
+
     public Timestamp convertToDate(String date){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         try {

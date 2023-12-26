@@ -285,7 +285,7 @@
                     </div>
                     
                     <div class="col-md-8 login-form">
-                        <form class="modal-content animate" action="/login" method="post" th:object="${loginRequest}">
+                        <form class="modal-content animate" th:action="@{/do-login}" method="post" th:object="${loginRequest}">
                           <div class="namecontainer">
                             <P>Đăng nhập</P>
                           </div>

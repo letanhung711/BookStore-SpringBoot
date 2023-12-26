@@ -274,7 +274,7 @@
     <div class="col-6">
       <section class="payment-details">
         <h1 class="payment-title">THÔNG TIN THANH TOÁN</h1>
-        <form class="d-flex flex-column payment-info" action="">
+        <form class="d-flex flex-column payment-info" th:action="@{'/order/' + ${orderId} + '/confirm'}" method="post">
           <div class="customer-lbinput">
             <label>Số tài khoản</label>
             <input class="payment-input" type="text" value="19070550465018" readonly>
@@ -291,7 +291,6 @@
             <label>Nội dụng chuyển khoản</label>
             <input class="payment-input" type="text" th:value="${DESCRIPTION}" readonly>
           </div>
-
           <button type="submit" class="btn checkout-button">Tôi đã thanh toán</button>
           <a th:href="@{/}" style="text-decoration: none;text-align: center;"> Trở về trang chủ </a>
         </form>

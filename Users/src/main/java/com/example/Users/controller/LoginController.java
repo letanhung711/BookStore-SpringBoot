@@ -24,6 +24,6 @@ public class LoginController {
             model.addAttribute("message","Đăng nhập thành công!");
             model.addAttribute("user",user);
         }
-        return "redirect:/home";
+        return "redirect:/admin/index";
     }
 }

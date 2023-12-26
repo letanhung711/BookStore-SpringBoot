@@ -50,9 +50,9 @@ public class PageController {
         model.addAttribute("title","Phương thức thanh toán");
         return "/pages/payment-methods";
     }
-    @RequestMapping(value = "/pages/payment")
-    public ModelAndView payment(@ModelAttribute("customerDTO") CustomerDto customerDto,
-                                @ModelAttribute("paymentMethods") String paymentMethods, Model model){
+    @GetMapping("/pages/payment")
+    public String showPayment(@ModelAttribute("customerDTO") CustomerDto customerDto,
+                          @ModelAttribute("paymentMethods") String paymentMethods, Model model){
         Customer customer = customerService.addNewCustomer(customerDto);
         Order order = orderService.addOrder(customer, paymentMethods);
 
@@ -67,20 +67,20 @@ public class PageController {
         }
         orderService.updateOrder(order.getId() , total_quantity , total_price);
 
-        ModelAndView modelAndView = new ModelAndView();
         model.addAttribute("title","Thanh toán");
-        modelAndView.addObject("customerDTO" ,customerDto);
-        modelAndView.setViewName("/pages/payment");
+        model.addAttribute("customerDTO" ,customerDto);
 
         // QR
         String imageUrl = "https://img.vietqr.io/image/TCB-19070550465018-compact2.png?amount="+total_price+"&addInfo=Thanh toán đơn hàng: "+order.getId()+"&accountName=LE TAN HUNG";
         model.addAttribute("imageUrl", imageUrl);
 
         //Thanh toán
+        String orderId = order.getId()+"";
         String AMOUNT = total_price+"";
         String DESCRIPTION = "Thanh toán đơn hàng: " + order.getId();
+        model.addAttribute("orderId", orderId);
         model.addAttribute("AMOUNT", AMOUNT);
         model.addAttribute("DESCRIPTION", DESCRIPTION);
-        return modelAndView;
+        return "pages/payment";
     }
 }

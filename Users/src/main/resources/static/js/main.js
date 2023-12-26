@@ -107,17 +107,6 @@
         },
     });
 //--------------------------------------------------------------------------
-//Kiểm tra sdt trong form cart
-    function validatePhoneNumber() {
-        var phoneNumber = document.getElementById('customerPhone').value;
-        var regex = /^[0-9]*$/; // Chỉ chấp nhận các ký tự số
-        if (!regex.test(phoneNumber)) {
-            alert('Vui lòng nhập số điện thoại hợp lệ.');
-            document.getElementById('customerPhone').value = "";
-            return false;
-        }
-        return true;
-    }
 //--------------------------------------------------------------------------
 
 

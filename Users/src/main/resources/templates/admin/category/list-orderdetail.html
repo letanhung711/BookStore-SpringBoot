@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/admin/share/head">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<style>
+     table {
+         border-collapse: collapse;
+         width: 100%;
+     }
+
+     th, td {
+         border: 1px solid #ddd;
+         padding: 8px;
+         text-align: left;
+     }
+
+     th {
+         background-color: #f2f2f2;
+     }
+</style>
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!--Header -->
+  <header th:replace="/admin/share/header"></header>
+
+  <!--Control Panel - Menu) -->
+  <aside th:replace="/admin/share/menu"></aside>
+
+  <!-- =============================================== -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <table>
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Product_id</th>
+          <th>Số lượng</th>
+          <th>Giá</th>
+          <th>Order_id</th>
+          <th>Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="orderDetail : ${orderDetail}">
+          <td th:text="${orderDetail.id}"></td>
+          <td th:text="${orderDetail.product.id}"></td>
+          <td th:text="${orderDetail.quantity}"></td>
+          <td th:text="${orderDetail.unitPrice}"></td>
+          <td th:text="${orderDetail.order.id}"></td>
+          <td>
+            <a th:href="@{'/delete/' + ${orderDetail.id}}">Xóa</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <footer th:replace="/admin/share/footer"></footer>
+</div>
+<div th:replace="/admin/share/Jquery"></div>
+</body>
+</html>

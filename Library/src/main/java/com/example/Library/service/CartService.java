@@ -9,4 +9,5 @@ public interface CartService {
     void addToCart(long productId, String productImgUrl, String productName, double price, int quantity);
     void removeCartItem(long productId);
     String Checkout(long id , int sold);
+    void ClearList();
 }

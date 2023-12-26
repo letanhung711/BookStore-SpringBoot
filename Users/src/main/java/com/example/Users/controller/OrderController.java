@@ -1,6 +1,8 @@
 package com.example.Users.controller;
 
 import com.example.Library.dto.CustomerDto;
+import com.example.Library.model.Order;
+import com.example.Library.repository.OrderRepository;
 import com.example.Library.service.CartService;
 import com.example.Library.service.CustomerService;
 import com.example.Library.service.OrderService;
@@ -10,13 +12,19 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 public class OrderController {
+    @Autowired
+    private OrderRepository orderRepository;
     @Autowired
     private OrderService orderService;
     @Autowired
@@ -31,12 +39,14 @@ public class OrderController {
 
         JsonObject jsonObject = jsonElement.getAsJsonObject();
         String name = jsonObject.get("nameCustomer").getAsString();
+        String email = jsonObject.get("email").getAsString();
         String phone = jsonObject.get("phone").getAsString();
         String address = jsonObject.get("address").getAsString();
         String paymentMethods = jsonObject.get("paymentMethods").getAsString();
 
         CustomerDto customerDTO = new CustomerDto();
         customerDTO.setFullName(name);
+        customerDTO.setEmail(email);
         customerDTO.setNumberPhone(phone);
         customerDTO.setAddress(address);
 
@@ -54,5 +64,15 @@ public class OrderController {
                 return "FAIL";
         }
         return "redirect:/pages/payment";
+    }
+
+    @RequestMapping(value = "/order/{orderId}/confirm", method = RequestMethod.POST)
+    public String updateStatus(@PathVariable("orderId") Long orderId, Model model){
+        Optional<Order> order = orderRepository.findById(orderId);
+        if(order.isPresent()){
+            Order orderStatus = orderService.updateStatus(order.get().getId());
+            cartService.ClearList();
+        }
+        return "redirect:/";
     }
 }

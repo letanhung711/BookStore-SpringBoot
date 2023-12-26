@@ -1,6 +1,7 @@
 package com.example.Library.service.Impl;
 
 import com.example.Library.dto.ProductDto;
+import com.example.Library.dto.ProductInfoDto;
 import com.example.Library.model.Product;
 import com.example.Library.model.ProductInfo;
 import com.example.Library.repository.ProductInfoRepository;
@@ -8,13 +9,22 @@ import com.example.Library.repository.ProductRepository;
 import com.example.Library.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Optional;
+import java.time.LocalDate;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -29,17 +39,32 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String addProduct(ProductDto productDto) {
+    public String addProduct(ProductDto productDto, ProductInfoDto productInfoDto) {
+        DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate localDate = LocalDate.parse(productInfoDto.getNgayxb(), inputFormatter);
+        String formattedDate = localDate.format(outputFormatter);
+
         Product product =new Product();
         product.setName(productDto.getName());
         product.setAuthor(productDto.getAuthor());
         product.setPrice(productDto.getPrice());
         product.setQuantity(productDto.getQuantity());
         product.setNote(productDto.getNote());
-        product.setImageUrl(productDto.getImageUrl());
-        product.setCreate_time(convertToDate(productDto.getCreate_time()));
-        product.setUpdate_time(convertToDate(productDto.getUpdate_time()));
+        //product.setCreate_time(convertToDate(productDto.getCreate_time()));
+        //product.setUpdate_time(convertToDate(productDto.getUpdate_time()));
         productRepository.save(product);
+
+        ProductInfo productInfo = new ProductInfo();
+        productInfo.setNhaphathanh(productInfoDto.getNhaphathanh());
+        productInfo.setNxb(productInfoDto.getNxb());
+        productInfo.setWeight(productInfoDto.getWeight());
+        productInfo.setSize(productInfoDto.getSize());
+        productInfo.setNumberPage(productInfoDto.getNumberPage());
+        productInfo.setNgayxb(formattedDate);
+        productInfo.setParagraph(productInfoDto.getParagraph());
+        productInfo.setProduct(product);
+        productInfoRepository.save(productInfo);
         return "Create product successful!!!";
     }
 
@@ -57,6 +82,24 @@ public class ProductServiceImpl implements ProductService {
     public Optional<ProductInfo> getInfoOfProduct(long id) {
         Optional<Product> product = productRepository.findById(id);
         return product.map(Product::getProductInfo);
+    }
+    @Override
+    public void saveImage(MultipartFile file) throws IOException {
+        // Lưu ảnh vào thư mục static
+        String uploadDir = "src/main/resources/static/img/sanpham";
+        Path uploadPath = Paths.get(uploadDir);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        // Lưu tệp ảnh vào thư mục static
+        Path filePath = Paths.get(uploadDir, file.getOriginalFilename());
+        try (InputStream inputStream = file.getInputStream()) {
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        }
+        // Lưu thông tin về ảnh vào cơ sở dữ liệu
+        Product product = new Product();
+        product.setImageUrl("/img/sanpham/" + file.getOriginalFilename());
+        productRepository.save(product);
     }
 
     public Timestamp convertToDate(String date){
