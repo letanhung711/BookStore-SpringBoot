@@ -345,7 +345,7 @@
                                 </form>
                             </div>
 
-                            <button type="button" class="btn btn-payment" id="paymentButton" th:href="@{/pages/payment}">Thanh toán</button>
+                            <a type="button" class="btn btn-payment" id="paymentButton">Thanh toán</a>
                         </div>
                     </div>
                 </div>
@@ -530,7 +530,6 @@
         .catch(error => {
             console.error('Error sending data to payment page:', error);
         });
-<!--        window.location.href = '/pages/payment';-->
     });
 </script>
 </body>

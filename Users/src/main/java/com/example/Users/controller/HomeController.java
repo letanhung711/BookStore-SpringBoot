@@ -26,8 +26,10 @@ public class HomeController {
         model.addAttribute("topSellingProducts", topSellingProducts);
         //Top 10 san pham moi nhat
         List<Product> topProducts = productRepository.findTop10ByOrderByCreateTimeDesc(PageRequest.of(0, 10));
-        model.addAttribute("title","Mua Sách Online Nhanh Nhất Nhasach247");
         model.addAttribute("topProducts",topProducts);
+
+        model.addAttribute("allProduct", productRepository.findAll());
+        model.addAttribute("title","Mua Sách Online Nhanh Nhất Nhasach247");
         return "index";
     }
 }

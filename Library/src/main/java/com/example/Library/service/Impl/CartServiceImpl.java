@@ -55,6 +55,12 @@ public class CartServiceImpl implements CartService {
         cartItems.clear();
         isCartCleared = true;
     }
+
+    @Override
+    public void Clear() {
+        cartItems.clear();
+    }
+
     @Override
     public String Checkout(long id , int sold){
         if (!isCartCleared) {

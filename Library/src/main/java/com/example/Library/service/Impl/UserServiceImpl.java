@@ -12,7 +12,9 @@ import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
+import java.util.Locale;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -39,7 +41,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Users addUser(UserDto userDto) throws ParseException {
-        Date dateNow = new Date();
+        long dateNow = System.currentTimeMillis();
+        Timestamp timestamp = new Timestamp(dateNow);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         Users user = new Users();
@@ -50,7 +53,7 @@ public class UserServiceImpl implements UserService {
         user.setBirthdate(dateFormat.parse(userDto.getBirthdate()));
         user.setUsername(userDto.getUsername());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setCreate_time(convertToDate(dateNow.toString()));
+        user.setCreate_time(timestamp);
         return userRepository.save(user);
     }
 
@@ -59,10 +62,15 @@ public class UserServiceImpl implements UserService {
         return userRepository.findEmailByUsername(name);
     }
 
+    @Override
+    public void deleteUser(long id) {
+        userRepository.deleteById(id);
+    }
+
     public Timestamp convertToDate(String date){
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT'Z yyyy", Locale.US);
         try {
-            Date dateObject = dateFormat.parse(date);
+            Date dateObject = inputFormat.parse(date);
             Timestamp timestamp = new Timestamp(dateObject.getTime());
             return timestamp;
         } catch (ParseException e) {

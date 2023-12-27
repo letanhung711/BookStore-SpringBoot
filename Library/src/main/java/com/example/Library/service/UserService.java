@@ -9,4 +9,5 @@ public interface UserService {
     Users findByAccount(String username, String password);
     Users addUser(UserDto userDto) throws ParseException;
     Users getEmailByUserName(String name);
+    void deleteUser(long id);
 }

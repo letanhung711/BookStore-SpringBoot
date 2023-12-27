@@ -11,9 +11,8 @@ import java.util.Optional;
 
 public interface ProductService {
     Optional<Product> getProductInformation(long id);
-    String addProduct(ProductDto productDto, ProductInfoDto productInfoDto);
+    String addProduct(ProductDto productDto, ProductInfoDto productInfoDto, MultipartFile file) throws IOException;
     String updateProduct(long id, ProductDto productDto);
     String deleteProduct(long id);
     Optional<ProductInfo> getInfoOfProduct(long id);
-    void saveImage(MultipartFile file) throws IOException;
 }

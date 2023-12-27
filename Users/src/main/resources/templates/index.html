@@ -418,7 +418,7 @@
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                     <!-- Lặp qua danh sách sản phẩm và hiển thị mỗi sản phẩm trong một slide -->
-                    <div class="swiper-slide" th:each="product: ${topProducts}">
+                    <div class="swiper-slide" th:each="product: ${allProduct}">
                         <div class="product-item">
                             <div class="product-top">
                                 <a th:href="@{'/product/' + ${product.id}}" class="product-thumb">

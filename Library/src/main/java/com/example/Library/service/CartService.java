@@ -10,4 +10,5 @@ public interface CartService {
     void removeCartItem(long productId);
     String Checkout(long id , int sold);
     void ClearList();
+    void Clear();
 }

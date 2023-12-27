@@ -59,8 +59,8 @@
           <td th:text="${user.password}"></td>
           <td th:text="${user.create_time}"></td>
           <td>
-            <a th:href="@{'/edit/' + ${user.id}}">Sửa</a>
-            <a th:href="@{'/delete/' + ${user.id}}">Xóa</a>
+            <a th:href="@{'/admin/edit/' + ${user.id}}">Sửa</a>
+            <a th:href="@{'/admin/delete/' + ${user.id}}">Xóa</a>
           </td>
         </tr>
         </tbody>

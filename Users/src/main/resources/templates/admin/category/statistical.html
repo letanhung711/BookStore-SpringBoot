@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/admin/share/head">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<style>
+     .stat-container {
+         display: flex;
+         justify-content: space-around;
+         margin-top: 20px;
+     }
+     .stat-box {
+         border: 1px solid #ddd;
+         padding: 10px;
+         text-align: center;
+     }
+</style>
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!--Header -->
+  <header th:replace="/admin/share/header"></header>
+
+  <!--Control Panel - Menu) -->
+  <aside th:replace="/admin/share/menu"></aside>
+
+  <!-- =============================================== -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+      <div class="stat-container">
+        <div class="stat-box" id="total-users">
+          <h2>Total Users</h2>
+          <p id="total-users-count" th:text="${totalUser}"></p>
+        </div>
+        <div class="stat-box" id="total-sales">
+          <h2>Total Sales</h2>
+          <p id="total-sales-amount" th:text="${totalRevenue} + ' VND'"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer th:replace="/admin/share/footer"></footer>
+</div>
+<div th:replace="/admin/share/Jquery"></div>
+</body>
+</html>

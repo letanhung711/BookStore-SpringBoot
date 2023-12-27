@@ -4,11 +4,7 @@ import com.example.Library.dto.CartItem;
 import com.example.Library.dto.CustomerDto;
 import com.example.Library.model.Customer;
 import com.example.Library.model.Order;
-import com.example.Library.service.CartService;
-import com.example.Library.service.CustomerService;
-import com.example.Library.service.OrderDetailService;
-import com.example.Library.service.OrderService;
-import com.example.Library.service.ProductService;
+import com.example.Library.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +25,10 @@ public class PageController {
     private ProductService productService;
     @Autowired
     private OrderDetailService orderDetailService;
+    @Autowired
+    private MailService mailService;
+    public Customer customerMail;
+    public Order orderMail;
 
     @RequestMapping(value = "/pages/blog", method = RequestMethod.GET)
     public String showBlog(Model model){
@@ -51,8 +51,10 @@ public class PageController {
         return "/pages/payment-methods";
     }
     @GetMapping("/pages/payment")
-    public String showPayment(@ModelAttribute("customerDTO") CustomerDto customerDto,
+    public String Payment(@ModelAttribute("customerDTO") CustomerDto customerDto,
                           @ModelAttribute("paymentMethods") String paymentMethods, Model model){
+        System.out.println(customerDto);
+        System.out.println(paymentMethods);
         Customer customer = customerService.addNewCustomer(customerDto);
         Order order = orderService.addOrder(customer, paymentMethods);
 
@@ -66,6 +68,9 @@ public class PageController {
 
         }
         orderService.updateOrder(order.getId() , total_quantity , total_price);
+
+        customerMail = customer;
+        orderMail = order;
 
         model.addAttribute("title","Thanh toán");
         model.addAttribute("customerDTO" ,customerDto);
@@ -81,6 +86,20 @@ public class PageController {
         model.addAttribute("orderId", orderId);
         model.addAttribute("AMOUNT", AMOUNT);
         model.addAttribute("DESCRIPTION", DESCRIPTION);
-        return "pages/payment";
+        return "/pages/payment";
     }
+    @GetMapping("/pages/submit")
+    public String paymentSubmit(Model model) {
+        //Gửi mail
+        mailService.sendMail(customerMail,orderMail,cartService.getCartItems());
+        //Update trạng thái order
+        orderService.updateStatus(orderMail.getId());
+        //Xóa giỏ hàng
+        cartService.Clear();
+
+        String notification = "Bạn vui lòng kiểm tra email để theo dõi đơn hàng";
+        model.addAttribute("result_message", notification);
+        return "index";
+    }
+
 }

@@ -274,7 +274,7 @@
     <div class="col-6">
       <section class="payment-details">
         <h1 class="payment-title">THÔNG TIN THANH TOÁN</h1>
-        <form class="d-flex flex-column payment-info" th:action="@{'/order/' + ${orderId} + '/confirm'}" method="post">
+        <form class="d-flex flex-column payment-info" th:action="@{/pages/submit}" method="get">
           <div class="customer-lbinput">
             <label>Số tài khoản</label>
             <input class="payment-input" type="text" value="19070550465018" readonly>

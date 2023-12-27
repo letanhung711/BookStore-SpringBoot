@@ -25,7 +25,7 @@ public class OrderServiceImpl implements OrderService {
         Order order = new Order();
         order.setStatus(OrderStatus.CANCEL);
         order.setCreate_time(timestamp);
-        if(paymentMethod == "cod") {
+        if("cod".equals(paymentMethod)) {
             order.setPaymentMethods(PaymentMethods.COD);
         }else {
             order.setPaymentMethods(PaymentMethods.CREDIT_CARD);

@@ -2,8 +2,6 @@ package com.example.Users.controller;
 
 import com.example.Library.dto.ProductForm;
 import com.example.Library.dto.UserDto;
-import com.example.Library.dto.ProductInfoDto;
-import com.example.Library.model.Product;
 import com.example.Library.model.Users;
 import com.example.Library.repository.*;
 import com.example.Library.service.ProductService;
@@ -67,6 +65,11 @@ public class AdminController {
         model.addAttribute("users", userRepository.findAll());
         return "/admin/category/list-users";
     }
+    @GetMapping("/delete/{id}")
+    public String deleteUser(@PathVariable("id") long id){
+        userService.deleteUser(id);
+        return "redirect:/admin/category/list_users";
+    }
     @GetMapping("/category/list_order")
     public String showListOrders(Model model){
         getAdmin(model);
@@ -108,8 +111,14 @@ public class AdminController {
     @PostMapping("/add_product")
     public String addProduct(@ModelAttribute("productForm") ProductForm productForm,
                              @RequestParam("file") MultipartFile file) throws IOException {
-        productService.addProduct(productForm.getProductDto(), productForm.getProductInfoDto());
-        productService.saveImage(file);
+        productService.addProduct(productForm.getProductDto(), productForm.getProductInfoDto(), file);
         return "redirect:/admin/category/list_product";
+    }
+    @GetMapping("/category/statistical")
+    public String showStatistical(Model model){
+        getAdmin(model);
+        model.addAttribute("totalUser", userRepository.count());
+        model.addAttribute("totalRevenue", orderRepository.getTotalPriceSum());
+        return "/admin/category/statistical";
     }
 }

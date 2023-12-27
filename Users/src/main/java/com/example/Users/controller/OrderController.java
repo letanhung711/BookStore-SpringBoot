@@ -1,7 +1,6 @@
 package com.example.Users.controller;
 
 import com.example.Library.dto.CustomerDto;
-import com.example.Library.model.Order;
 import com.example.Library.repository.OrderRepository;
 import com.example.Library.service.CartService;
 import com.example.Library.service.CustomerService;
@@ -13,13 +12,11 @@ import com.google.gson.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Optional;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class OrderController {
@@ -53,6 +50,9 @@ public class OrderController {
         redirectAttributes.addFlashAttribute("customerDTO", customerDTO);
         redirectAttributes.addFlashAttribute("paymentMethods", paymentMethods);
 
+        System.out.println(customerDTO);
+        System.out.println(paymentMethods);
+
         JsonArray data = jsonObject.getAsJsonArray("products");
         for (JsonElement element : data) {
             JsonObject jsonObject1 = element.getAsJsonObject();
@@ -63,16 +63,6 @@ public class OrderController {
             if (result_checkout != null)
                 return "FAIL";
         }
-        return "redirect:/pages/payment";
-    }
-
-    @RequestMapping(value = "/order/{orderId}/confirm", method = RequestMethod.POST)
-    public String updateStatus(@PathVariable("orderId") Long orderId, Model model){
-        Optional<Order> order = orderRepository.findById(orderId);
-        if(order.isPresent()){
-            Order orderStatus = orderService.updateStatus(order.get().getId());
-            cartService.ClearList();
-        }
-        return "redirect:/";
+        return "redirect:/pages/payment.html";
     }
 }

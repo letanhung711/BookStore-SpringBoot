@@ -39,11 +39,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String addProduct(ProductDto productDto, ProductInfoDto productInfoDto) {
+    public String addProduct(ProductDto productDto, ProductInfoDto productInfoDto, MultipartFile file) throws IOException {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate localDate = LocalDate.parse(productInfoDto.getNgayxb(), inputFormatter);
         String formattedDate = localDate.format(outputFormatter);
+
+        long dateNow = System.currentTimeMillis();
+        Timestamp timestamp = new Timestamp(dateNow);
 
         Product product =new Product();
         product.setName(productDto.getName());
@@ -51,8 +54,21 @@ public class ProductServiceImpl implements ProductService {
         product.setPrice(productDto.getPrice());
         product.setQuantity(productDto.getQuantity());
         product.setNote(productDto.getNote());
-        //product.setCreate_time(convertToDate(productDto.getCreate_time()));
-        //product.setUpdate_time(convertToDate(productDto.getUpdate_time()));
+        product.setCreate_time(timestamp);
+        product.setUpdate_time(timestamp);
+        // Lưu ảnh vào thư mục static
+        String uploadDir = "E:\\Workspace\\WebSale\\Users\\src\\main\\resources\\static\\img\\sanpham";
+        Path uploadPath = Paths.get(uploadDir);
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        // Lưu tệp ảnh vào thư mục static
+        Path filePath = Paths.get(uploadDir, file.getOriginalFilename());
+        try (InputStream inputStream = file.getInputStream()) {
+            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+        }
+        // Lưu thông tin về ảnh vào cơ sở dữ liệu
+        product.setImageUrl("/img/sanpham/" + file.getOriginalFilename());
         productRepository.save(product);
 
         ProductInfo productInfo = new ProductInfo();
@@ -82,24 +98,6 @@ public class ProductServiceImpl implements ProductService {
     public Optional<ProductInfo> getInfoOfProduct(long id) {
         Optional<Product> product = productRepository.findById(id);
         return product.map(Product::getProductInfo);
-    }
-    @Override
-    public void saveImage(MultipartFile file) throws IOException {
-        // Lưu ảnh vào thư mục static
-        String uploadDir = "src/main/resources/static/img/sanpham";
-        Path uploadPath = Paths.get(uploadDir);
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-        }
-        // Lưu tệp ảnh vào thư mục static
-        Path filePath = Paths.get(uploadDir, file.getOriginalFilename());
-        try (InputStream inputStream = file.getInputStream()) {
-            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-        }
-        // Lưu thông tin về ảnh vào cơ sở dữ liệu
-        Product product = new Product();
-        product.setImageUrl("/img/sanpham/" + file.getOriginalFilename());
-        productRepository.save(product);
     }
 
     public Timestamp convertToDate(String date){
