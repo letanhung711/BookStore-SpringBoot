@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PageController {
@@ -50,13 +51,10 @@ public class PageController {
         model.addAttribute("title","Phương thức thanh toán");
         return "/pages/payment-methods";
     }
-    @GetMapping("/pages/payment")
-    public String Payment(@ModelAttribute("customerDTO") CustomerDto customerDto,
-                          @ModelAttribute("paymentMethods") String paymentMethods, Model model){
-        System.out.println(customerDto);
-        System.out.println(paymentMethods);
+    @GetMapping("/pages/payments")
+    public String Payment(@ModelAttribute CustomerDto customerDto , Model model){
         Customer customer = customerService.addNewCustomer(customerDto);
-        Order order = orderService.addOrder(customer, paymentMethods);
+        Order order = orderService.addOrder(customer, "credit-card");
 
         int total_quantity = 0;
         double total_price = 0;
@@ -67,13 +65,15 @@ public class PageController {
             total_price += cart.getTotal();
 
         }
-        orderService.updateOrder(order.getId() , total_quantity , total_price);
+        Order orderUpdate = orderService.updateOrder(order.getId() , total_quantity , total_price);
 
         customerMail = customer;
-        orderMail = order;
+        orderMail = orderUpdate;
+        System.out.println("customerMail:"+customerMail);
+        System.out.println("orderMail:"+orderMail);
 
         model.addAttribute("title","Thanh toán");
-        model.addAttribute("customerDTO" ,customerDto);
+        model.addAttribute("customerDto" ,customerDto);
 
         // QR
         String imageUrl = "https://img.vietqr.io/image/TCB-19070550465018-compact2.png?amount="+total_price+"&addInfo=Thanh toán đơn hàng: "+order.getId()+"&accountName=LE TAN HUNG";
@@ -99,7 +99,7 @@ public class PageController {
 
         String notification = "Bạn vui lòng kiểm tra email để theo dõi đơn hàng";
         model.addAttribute("result_message", notification);
-        return "index";
+        return "redirect:/";
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.Users.controller;
 
 import com.example.Library.dto.CustomerDto;
+import com.example.Library.model.Customer;
 import com.example.Library.repository.OrderRepository;
 import com.example.Library.service.CartService;
 import com.example.Library.service.CustomerService;
@@ -30,30 +31,12 @@ public class OrderController {
     private CustomerService customerService;
 
     @RequestMapping(value = "/order/add", method = RequestMethod.POST)
-    public String addOrder(@RequestBody String dataToSend, RedirectAttributes redirectAttributes){
+    public String addOrder(@RequestBody String dataToSend){
         String json = dataToSend;
         JsonElement jsonElement = JsonParser.parseString(json);
-
         JsonObject jsonObject = jsonElement.getAsJsonObject();
-        String name = jsonObject.get("nameCustomer").getAsString();
-        String email = jsonObject.get("email").getAsString();
-        String phone = jsonObject.get("phone").getAsString();
-        String address = jsonObject.get("address").getAsString();
-        String paymentMethods = jsonObject.get("paymentMethods").getAsString();
 
-        CustomerDto customerDTO = new CustomerDto();
-        customerDTO.setFullName(name);
-        customerDTO.setEmail(email);
-        customerDTO.setNumberPhone(phone);
-        customerDTO.setAddress(address);
-
-        redirectAttributes.addFlashAttribute("customerDTO", customerDTO);
-        redirectAttributes.addFlashAttribute("paymentMethods", paymentMethods);
-
-        System.out.println(customerDTO);
-        System.out.println(paymentMethods);
-
-        JsonArray data = jsonObject.getAsJsonArray("products");
+        JsonArray data = jsonObject.getAsJsonArray("products");;
         for (JsonElement element : data) {
             JsonObject jsonObject1 = element.getAsJsonObject();
             long id = jsonObject1.get("productId").getAsLong();
@@ -63,6 +46,6 @@ public class OrderController {
             if (result_checkout != null)
                 return "FAIL";
         }
-        return "redirect:/pages/payment.html";
+        return "/pages/payment";
     }
 }

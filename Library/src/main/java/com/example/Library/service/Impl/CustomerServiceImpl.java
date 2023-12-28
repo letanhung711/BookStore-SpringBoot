@@ -7,10 +7,18 @@ import com.example.Library.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Override
+    public Optional<Customer> getCustomer(Long id) {
+        return customerRepository.findById(id);
+    }
+
     @Override
     public Customer addNewCustomer(CustomerDto customerDTO) {
         boolean exist_customer = customerRepository.existsCustomerByNumberPhone(customerDTO.getNumberPhone());

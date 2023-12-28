@@ -269,7 +269,7 @@
     <!--cart-->
     <section class="h-custom">
         <div class="cart">
-            <form id="orderForm">
+            <form id="orderForm" action="/pages/payments" method="get">
                 <div class="row">
                     <div class="col-8">
                         <table class="cart-table table table-striped" id="table_pay">
@@ -317,22 +317,22 @@
                             <!-- Dòng nhập tên khách hàng -->
                             <div class="customer-lbinput">
                                 <label for="customerName">Họ và Tên</label>
-                                <input type="text" id="customerName" name="customerName" placeholder="Ex: Bùi Thanh Tường" required>
+                                <input type="text" id="customerName" name="fullName" placeholder="Ex: Bùi Thanh Tường" required>
                             </div>
                             <!-- Dòng nhập tên khách hàng -->
                             <div class="customer-lbinput">
                                 <label for="customerEmail">Email</label>
-                                <input type="text" id="customerEmail" name="customerEmail" placeholder="Nhập email" required>
+                                <input type="text" id="customerEmail" name="email" placeholder="Nhập email" required>
                             </div>
                             <!-- Dòng nhập sdt -->
                             <div class="customer-lbinput">
                                 <label for="customerPhone">Số điện thoại</label>
-                                <input type="tel" id="customerPhone" name="customerPhone" oninput="return validatePhoneNumber()" placeholder="Nhập số điện thoại" required>
+                                <input type="tel" id="customerPhone" name="numberPhone" oninput="return validatePhoneNumber()" placeholder="Nhập số điện thoại" required>
                             </div>
                             <!-- Dòng nhập địa chỉ -->
                             <div class="customer-lbinput">
                                 <label for="customerAddress">Địa chỉ</label>
-                                <textarea type="text" id="customerAddress" name="customerAddress" required></textarea>
+                                <textarea type="text" id="customerAddress" name="address" required></textarea>
                             </div>
                             <!-- Dòng chọn phương thức thanh toán -->
                             <div class="customer-lbinput">
@@ -345,7 +345,7 @@
                                 </form>
                             </div>
 
-                            <a type="button" class="btn btn-payment" id="paymentButton">Thanh toán</a>
+                            <button type="submit" class="btn btn-payment" id="paymentButton">Thanh toán</button>
                         </div>
                     </div>
                 </div>
@@ -486,13 +486,6 @@
             return;
         }
 
-        // Lấy thông tin khách hàng từ form
-        var nameCustomer = document.getElementById('customerName').value;
-        var email = document.getElementById('customerEmail').value;
-        var phone = document.getElementById('customerPhone').value;
-        var address = document.getElementById('customerAddress').value;
-        var paymentMethods = document.getElementById('paymentMethod').value;
-
         // Lấy thông tin sản phẩm từ bảng
         var products = [];
         var rows = document.querySelectorAll('#table_pay tbody tr');
@@ -506,11 +499,6 @@
 
         // Tạo đối tượng chứa dữ liệu
         var orderData = {
-            nameCustomer: nameCustomer,
-            email: email,
-            phone: phone,
-            address: address,
-            paymentMethods: paymentMethods,
             products: products
         };
         console.log('Data to be sent:', orderData);

@@ -56,7 +56,7 @@ public class MailServiceImpl implements MailService {
                     + products +"\n"
                     +"Tổng cộng: " + total + "\n"
                     +"Địa chỉ giao hàng: " + customer.getAddress() + "\n\n"
-                    +"Chúng tôi sẽ thông báo cho bạn khi đơn hàng của bạn đã được gửi đi. Nếu có bất kỳ câu hỏi hoặc yêu cầu nào, vui lòng liên hệ chúng tôi tại nhasach247@gmail.com hoặc số điện thoại 0818385099.\n\n"
+                    +"Chúng tôi sẽ thông báo cho bạn khi đơn hàng của bạn đã được gửi đi. Nếu có bất kỳ câu hỏi hoặc yêu cầu nào, vui lòng liên hệ chúng tôi tại contactnhasach247@gmail.com hoặc số điện thoại 0818385099.\n\n"
                     +"Chúng tôi rất hân hạnh được phục vụ bạn và mong bạn có trải nghiệm mua sắm thú vị tại Nhasach247.\n"
                     +"Trân trọng,\n"
                     +"Nhasach247";

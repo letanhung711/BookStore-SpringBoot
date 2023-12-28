@@ -25,7 +25,7 @@ public class DateTimeServiceImpl implements DateTimeService {
 
     @Override
     public String DateFormatTime(String datetime) {
-        SimpleDateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS", Locale.ENGLISH);
         try {
             Date orderDate = inputFormat.parse(datetime);
             SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

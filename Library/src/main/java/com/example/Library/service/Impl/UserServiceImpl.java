@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public Timestamp convertToDate(String date){
-        SimpleDateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT'Z yyyy", Locale.US);
+        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy");
         try {
             Date dateObject = inputFormat.parse(date);
             Timestamp timestamp = new Timestamp(dateObject.getTime());
