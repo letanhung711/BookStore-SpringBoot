@@ -1,0 +1,636 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Link Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Link Icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Link Css-->
+    <link rel="stylesheet" href="/danhmuc/1/styles.css">
+    
+    <title>Sách kỹ năng sống</title>
+    <!--Biểu tượng-->
+    <link rel='shortcut icon' href='/img/icon/favicon.ico' />
+</head>
+<body>
+<div class="container-fluid">
+  
+<!--start header-->
+<!--top header-->
+<div class="topheader">
+  <div class="container">
+    <div class="mainbox">
+      <div class="row">
+        <div class="left_topheader">
+          <a class="help_topheader" href=""><i class="fa-solid fa-circle-question"></i> Trợ giúp</a>&nbsp;&nbsp;&nbsp;
+          <a class="sale_topheader" href=""><i class="fa-solid fa-gift"></i> Ưu đãi & tiện ích</a>&nbsp;&nbsp;&nbsp;
+          <a class="promotion" href=""><i class="fa-solid fa-bell"></i> Thông báo</a>
+        </div>
+        <div class="right_topheader">
+          <ul class="menu_topheader">
+            <li><a href="/users/dangnhap.html"><i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng nhập</a></li>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <li><a href="/users/dangki.html"><i class="fa-solid fa-user-shield"></i> Đăng kí</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--bottom header-->
+<div id="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-3 img-header">
+        <a href="/index.html">
+          <img src="/img/logo/logo.jpg" alt="Nhasach247">
+        </a>
+      </div>
+
+      <div class="col-6 search_header">
+          <form class="d-flex">
+            <input type="text" placeholder="Bạn cần tìm gì ?">
+            <i id="icon-input" class="fa-solid fa-magnifying-glass"></i>
+            <button class="search" type="button">Search</button>
+          </form> 
+      </div>
+
+      <div class="col-3 cart-header">
+        <div class="dropdown cart">
+          <button type="button" class="btn">
+            <a href="/users/giohang.html"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng (3)</a>
+          </button>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+<!--end header-->  
+
+  <!--start menu-->
+  <div id="menu">
+    <div class="container">
+      <nav>
+        <ul id="main-menu">
+          <li>
+            <a href="/index.html"><i class="fa-solid fa-house" style="color: #00cc66"></i> Trang chủ</a>
+          </li>
+          <li>
+            <a href="#" style="font-weight: 600;">Danh mục sản phẩm</a>
+            <ul class="sub-menu">
+                <li>
+                    <a href="#">+ Nổi bật</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Sách mới</a>
+                        </li>
+                        <li>
+                            <a href="">Sắp phát hành</a>
+                        </li>
+                        <li>
+                            <a href="">Sách bán chạy</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sachchuyennganh.html">+ Sách chuyên ngành</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Chính trị - Triết học</a>
+                        </li>
+                        <li>
+                            <a href="">Công nghệ thông tin</a>
+                        </li>
+                        <li>
+                            <a href="">Khoa học tự nhiên</a>
+                        </li>
+                        <li>
+                            <a href="">Lịch sử - Địa lý</a>
+                        </li>
+                        <li>
+                            <a href="">Mỹ thuật - Kiến trúc</a>
+                        </li>
+                        <li>
+                            <a href="">Khoa học xã hội</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sachkinhte.html">+ Sách kinh tế</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Bài học kinh doanh</a>
+                        </li>
+                        <li>
+                            <a href="">Doanh nhân - Tập đoàn</a>
+                        </li>
+                        <li>
+                            <a href="">Khởi nghiệp</a>
+                        </li>
+                        <li>
+                            <a href="">Kinh tế học</a>
+                        </li>
+                        <li>
+                            <a href="">Kỹ năng làm việc</a>
+                        </li>
+                        <li>
+                            <a href="">Marketing - Bán hàng</a>
+                        </li>
+                        <li>
+                            <a href="">Tài chính - Kế toán</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/vanhoctrongnuoc.html">+ Văn học trong nước</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Tiểu thuyết</a>
+                        </li>
+                        <li>
+                            <a href="">Truyện ngắn - Tản văn</a>
+                        </li>
+                        <li>
+                            <a href="">Thơ</a>
+                        </li>
+                        <li>
+                            <a href="">Huyền bí - Giả tưởng</a>
+                        </li>
+                        <li>
+                            <a href="">Phóng sự - Ký sự</a>
+                        </li>
+                        <li>
+                            <a href="">Trinh thám - Kinh dị</a>
+                        </li>
+                        <li>
+                            <a href="">Tiểu sử - Hồi ký</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/hocngoaingu.html">+ Học ngoại ngữ</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Từ điển</a>
+                        </li>
+                        <li>
+                            <a href="">Sách học tiếng Anh</a>
+                        </li>
+                        <li>
+                            <a href="">Sách học tiếng Nhật</a>
+                        </li>
+                        <li>
+                            <a href="">Sách học tiếng Hoa</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sach_ky_nang_song.html">+ Sách kĩ năng sống</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Kỹ năng sống</a>
+                        </li>
+                        <li>
+                            <a href="">Nghệ thuật sống đẹp</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sach-thieu-nhi.html">+ Sách thiếu nhi</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Truyện cổ tích - Thần thoại</a>
+                        </li>
+                        <li>
+                            <a href="">Kĩ năng - Kiến thức</a>
+                        </li>
+                        <li>
+                            <a href="">Vừa học - Vừa chơi</a>
+                        </li>
+                        <li>
+                            <a href="">Văn học</a>
+                        </li>
+                        <li>
+                            <a href="">Truyện kể cho bé</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/danhmuc/1/sach-tuoi-teen.html">+ Sách tuổi teen</a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="">Hướng nghiệp - Kĩ năng</a>
+                        </li>
+                        <li>
+                            <a href="">Văn học teen</a>
+                        </li>
+                        <li>
+                            <a href="">Light Novel</a>
+                        </li>
+                        <li>
+                            <a href="">Truyện tranh - Comic</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/overview/blog.html" style="font-weight: 600;">Blog</a>
+          </li>
+          <li>
+            <a href="/overview/gioithieu.html" style="font-weight: 600;">Giới thiệu</a>
+          </li>
+          <li>
+            <a href="/overview/lien-he.html" style="font-weight: 600;">Liên hệ</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+<!--end menu-->
+
+<!-- Breadcrumbs -->
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ol class="breadcrumb bg-light col-12" style="font-size:13px">
+          <li class="breadcrumb-item">
+          <a href="#">Trang chủ</a>
+          <span class="divider"></span>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+          Danh mục sản phẩm
+          <span class="divider"></span>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+          Sách kỹ năng sống
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  
+<!--main_category-->
+<div class="container container_category">
+    <div class="sortable" id="layoutGroup3">
+        <div class="block">
+            <h2>Danh mục</h2>
+            <div class="list_content">
+                <ul>
+                    <li><a href="">Kỹ năng sống</a></li>
+                    <li><a href="">Nghệ thuật sống đẹp</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="block">
+            <h2>Tác giả</h2>
+            <div class="list_content" style="padding: 5px 0 !important;">
+                <div class="show_fileds">
+                    <ul>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Tae Wan Ha
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Lê Đỗ Quỳnh Hương
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Li Qiong
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Salgoo
+                                <span class="count">(3)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Windy
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Jamie Holmes
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Carmine Gallo 
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Rossie Nguyễn
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Rolf Dobelli
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Charles Duhigg
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Mari Tamagawa
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                        <a href="">
+                            <li class="checkbox">
+                                <i class="fa-thin fa-square"></i>
+                                Nhóm Ezpsychology
+                                <span class="count">(1)</span>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sortable" id="layoutGroup4">
+        <div class="block">
+            <h1>Sách kỹ năng sống</h1>
+            <div class="pagesright">
+                <div class="views">
+                    <a class="active fa fa-th-large" title="Xem danh sách theo dạng lưới"></a>
+                    <a class=" fa fa-th-list"  title="Xem theo dạng danh sách"></a>
+                </div>
+                <div class="sorts">
+                    Xem theo: &nbsp;&nbsp;&nbsp;
+                    <select id="order" name="item_order">
+                        <option value="0">Xem nhiều</option>
+                        <option value="1">Bán chạy nhất</option>
+                        <option value="2">Ngày xuất bản</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="clear" style="clear: both;"></div>
+
+            <div class="blockcontent">
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/1300201940011_[cover]-moi-khoanh-khac-deu-la-em__60725_thum_135.jpg" alt="Mọi Khoảnh Khắc Đều Là Em">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="Mọi Khoảnh Khắc Đều Là Em">Mọi Khoảnh Khắc Đều Là Em</a>
+                        </div>
+                        <div class="fields">
+                            <span>Tae Wan Ha</span>
+                        </div>
+                        <div class="prices">109.650 ₫</div>
+                        <div class="rootprices">129.000 ₫</div>
+                    </div>
+                </div>
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/1113201931348_bia-thien-tai-ben-trai-ke-dien-ben-phai__87579_thum_135.jpg" alt="Thiên Tài Bên Trái, Kẻ Điên Bên Phải">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="Thiên Tài Bên Trái, Kẻ Điên Bên Phải">Thiên Tài Bên Trái, Kẻ Điên Bên Phải</a>
+                        </div>
+                        <div class="fields">
+                            <span></span>
+                        </div>
+                        <div class="prices">116.000 ₫</div>
+                        <span class="rootprices">145.000 ₫</span>
+                    </div>
+                </div>
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/ubo8hcyo__98963_thum_135.jpg" alt="YÊU X SỐNG X PHONG CÁCH">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="YÊU X SỐNG X PHONG CÁCH">YÊU X SỐNG X PHONG CÁCH</a>
+                        </div>
+                        <div class="fields">
+                            <span>Garance Doré</span>
+                        </div>
+                        <div class="prices">169.150 ₫</div>
+                        <span class="rootprices">199.000 ₫</span>
+                    </div>
+                </div>
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/met-qua-a-quang-het-di__67364_thum_135.jpg" alt="Mệt Quá À? Quẳng Hết Đi!">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="Mệt Quá À? Quẳng Hết Đi!">Mệt Quá À? Quẳng Hết Đi!</a>
+                        </div>
+                        <div class="fields">
+                            <span>Hideho Arita</span>
+                        </div>
+                        <div class="prices">71.200 ₫</div>
+                        <span class="rootprices">89.000 ₫</span>
+                    </div>
+                </div>
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/dung-de-tuong-lai__57972_thum_135.jpg" alt="Đừng để tương lai giết bạn hiện tại!">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="Đừng để tương lai giết bạn hiện tại!">ĐỪNG ĐỂ TƯƠNG LAI GHÉT BẠN HIỆN...</a>
+                        </div>
+                        <div class="fields">
+                            <span>Takeshi Furukawa</span>
+                        </div>
+                        <div class="prices">76.800 ₫</div>
+                        <span class="rootprices">96.000 ₫</span>
+                    </div>
+                </div>
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/tuoi-tre-dang-gia-bao-nhieu__76244_thum_135.jpg" alt="Tuổi Trẻ Đáng Giá Bao Nhiêu">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="Tuổi Trẻ Đáng Giá Bao Nhiêu">Tuổi Trẻ Đáng Giá Bao Nhiêu</a>
+                        </div>
+                        <div class="fields">
+                            <span>Rosie Nguyễn</span>
+                        </div>
+                        <div class="prices">59.500 ₫</div>
+                        <span class="rootprices">70.000 ₫</span>
+                    </div>
+                </div>
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/minh-la-ca-viec-cua-minh-la-boi__66925_thum_135.jpg" alt="Mình Là Cá, Việc Của Mình Là Bơi">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="Mình Là Cá, Việc Của Mình Là Bơi">Mình Là Cá, Việc Của Mình Là Bơi</a>
+                        </div>
+                        <div class="fields">
+                            <span>Takeshi Furukawa</span>
+                        </div>
+                        <div class="prices">71.200 ₫</div>
+                        <span class="rootprices">80.000 ₫</span>
+                    </div>
+                </div>
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/suc-manh-cua-su-mo-ho-va-bi-an__04578_thum_135.jpg" alt="Sức Mạnh Của Sự Mơ Hồ Và Bí Ẩn">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="Sức Mạnh Của Sự Mơ Hồ Và Bí Ẩn">Sức Mạnh Của Sự Mơ Hồ Và Bí Ẩn</a>
+                        </div>
+                        <div class="fields">
+                            <span>Jamie Holmes</span>
+                        </div>
+                        <div class="prices">79.200 ₫₫</div>
+                        <span class="rootprices">99.000 ₫</span>
+                    </div>
+                </div>
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="images">
+                            <a href="">
+                                <img src="/img/danhmuc/2/hay-to-mo-nhu-mot-dua-tre__08445_thum_135.jpg" alt="Hãy Tò Mò Như Một Đứa Trẻ">
+                            </a>
+                        </div>
+                        <div class="product_name">
+                            <a href="" title="Hãy Tò Mò Như Một Đứa Trẻ">Hãy Tò Mò Như Một Đứa Trẻ</a>
+                        </div>
+                        <div class="fields">
+                            <span>Brian Grazer - Charles Fishman</span>
+                        </div>
+                        <div class="prices">87.200 ₫</div>
+                        <span class="rootprices">109.000 ₫</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer-->
+<div id="footer">
+  <div class="container-fluid container-footer">
+    <div class="row">
+      <!--liên hệ-->
+      <div class="col-3 footer-post">
+        <ul>
+          <li style="text-transform: uppercase; color: #111; font-weight: 500;">Thông Tin Liên Hệ</li>
+          <li>
+            Hotline: 
+            <b style="color: #00cc66;">0818 385 099</b>
+          </li>
+          <li>Email: nhasach247@ga.vn</li>
+        </ul>
+      </div>
+      <!--tài khoản-->
+      <div class="col-3 footer-post">
+        <ul>
+          <li style="text-transform: uppercase; color: #111; font-weight: 500;">Tài Khoản</li>
+          <li>
+            <a href="#" title="Tài khoản">Tài khoản</a>
+          </li>
+          <li>
+            <a href="#" title="Danh sách đơn hàng">Danh sách đơn hàng</a>
+          </li>
+          <li>
+            <a href="#" title="Thông báo">Thông báo</a>
+          </li>
+          <li>
+            <a href="#" title="Lịch sử giao dịch">Lịch sử giao dịch</a>
+          </li>
+        </ul>
+      </div>
+      <!--trợ giúp-->
+      <div class="col-3 footer-post">
+        <ul>
+          <li style="text-transform: uppercase; color: #111; font-weight: 500;">Trợ giúp</li>
+          <li>
+            <a href="#" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a>
+          </li>
+          <li>
+            <a href="/overview/payment-methods.html" title="Phương thức thanh toán">Phương thức thanh toán</a>
+          </li>
+          <li>
+            <a href="#" title="Phương thức vận chuyển">Phương thức vận chuyển</a>
+          </li>
+          <li>
+            <a href="/overview/cau-hoi-thuong-gap.html" title="Câu hỏi thường gặp (FAQs)">Câu hỏi thường gặp (FAQs)</a>
+          </li>
+        </ul>
+      </div>
+    
+      <!--xã hội-->
+      <div class="col-3 footer-post">
+        <ul>
+          <li style="text-transform: uppercase; color: #111; font-weight: 500;">Mạng xã hội</li>
+          <li>
+            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i> Nhasach247</a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/nhasach247ga" title="Facebook"><i class="fa-brands fa-facebook" style="color: #1877F2"></i> Nhasach247.ga</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-12">
+        <div style="text-align: center; border-top: 1px solid white;"> Copyright © 2022 Nhasach247.ga</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
