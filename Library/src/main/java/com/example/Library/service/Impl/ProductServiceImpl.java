@@ -23,6 +23,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.time.LocalDate;
 
@@ -98,6 +99,12 @@ public class ProductServiceImpl implements ProductService {
     public Optional<ProductInfo> getInfoOfProduct(long id) {
         Optional<Product> product = productRepository.findById(id);
         return product.map(Product::getProductInfo);
+    }
+
+    @Override
+    public List<Product> searchProduct(String name) {
+        List<Product> products = productRepository.findByName(name);
+        return products;
     }
 
     public Timestamp convertToDate(String date){

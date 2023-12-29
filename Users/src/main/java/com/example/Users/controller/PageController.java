@@ -2,7 +2,9 @@ package com.example.Users.controller;
 
 import com.example.Library.dto.CartItem;
 import com.example.Library.dto.CustomerDto;
+import com.example.Library.dto.CustomerFeedbackDto;
 import com.example.Library.model.Customer;
+import com.example.Library.model.CustomerFeedback;
 import com.example.Library.model.Order;
 import com.example.Library.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class PageController {
     private ProductService productService;
     @Autowired
     private OrderDetailService orderDetailService;
+    @Autowired
+    private CustomerFeedbackService customerFeedbackService;
     @Autowired
     private MailService mailService;
     public Customer customerMail;
@@ -101,5 +105,10 @@ public class PageController {
         model.addAttribute("result_message", notification);
         return "redirect:/";
     }
-
+    @PostMapping("/pages/send_feedback")
+    public String sendFeedBack(@ModelAttribute CustomerFeedbackDto customerFeedbackDto, Model model){
+        CustomerFeedback customerFeedback = customerFeedbackService.addFeedBack(customerFeedbackDto);
+        model.addAttribute("message","Cảm ơn bạn đã phản hồi đến website.");
+        return "/pages/lien-he";
+    }
 }

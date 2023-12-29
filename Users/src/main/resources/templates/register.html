@@ -18,7 +18,6 @@
 <body>
 <div class="container">
 
-<!--start header-->
 <!--top header-->
 <div class="topheader">
   <div class="container">
@@ -285,23 +284,26 @@
                         <img src="/img/chicken-register.jpg">
                      </div>
                     <div class="col-md-8 register-form">
-                        <form class="modal-content animate" action="/action_page.php">
+                        <form class="modal-content animate" action="/register" method="post" onsubmit="return validateForm()">
                             <div class="container-register">
                               <h3>Đăng ký</h3>
                               <p>Vui lòng điền vào mẫu này để tạo tài khoản.</p>
 
-                                <label><b>Tên tài khoản</b></label>
-                                <input type="text" placeholder="Nhập tên tài khoản" name="email" required>
+                                <label for="username"><b>Tên tài khoản</b></label>
+                                <input type="text" id="username" placeholder="Nhập tên tài khoản" name="username" required>
+
+                                <label for="birthdate"><b>Ngày sinh</b></label>
+                                <input type="date" id="birthdate" name="birthdate" required>
 
                               <label for="email"><b>Email</b></label>
-                              <input type="text" placeholder="Nhập Email" name="email" required>
+                              <input type="email" id="email" placeholder="Nhập Email" name="email" required>
                           
-                              <label for="psw"><b>Mật khẩu</b></label>
-                              <input type="password" placeholder="Nhập mật khẩu" name="psw" required>
+                              <label for="password"><b>Mật khẩu</b></label>
+                              <input type="password" id="password" placeholder="Nhập mật khẩu" name="password" required>
                           
                               <label for="psw-repeat"><b>Nhập lại mật khẩu</b></label>
-                              <input type="password" placeholder="Nhập lại mật khẩu" name="psw-repeat" required>
-                          
+                              <input type="password" id="psw-repeat" placeholder="Nhập lại mật khẩu" name="psw-repeat" required>
+                                <p id="passwordError" class="error"></p>
                               <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
                           
                               <div class="clearfix">
@@ -392,6 +394,34 @@
   </div>
 </div>
 </div>
+
+<div>
+    <div th:attr="data-result-message=${message}"></div>
+    <script th:inline="javascript">
+        var message = document.querySelector('[data-result-message]').getAttribute('data-result-message');
+        if(message === "Email đã tồn tại"){
+            alert("Email đã tồn tại");
+        }else{
+            alert("Đăng ký tài khoản thành công");
+        }
+    </script>
+</div>
+
+<script>
+    function validateForm() {
+            var password = document.getElementById("password").value;
+            var repeatPassword = document.getElementById("psw-repeat").value;
+            var passwordError = document.getElementById("passwordError");
+
+            if (password !== repeatPassword) {
+                passwordError.textContent = "Mật khẩu không khớp";
+                return false;
+            } else {
+                passwordError.textContent = "";
+                return true;
+            }
+    }
+</script>
 
 </body>
 <!--link javascript-->

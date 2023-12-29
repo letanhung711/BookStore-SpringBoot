@@ -427,6 +427,41 @@ body{
       color: white;
       background: #00cc66;
   }
+  /*Danh mục*/
+  #categories{
+      font-size: 14px;
+      display: block;
+  }
+  .container-categories h1{
+      font-size: 25px;
+      font-weight: 600;
+      font-family: 'Times New Roman', Times, serif;
+      color: #00cc66;
+      margin-top: 5px;
+  }
+  #categories .row-1{
+      display: flex;
+      margin-left: 5%;
+  }
+  .container-categories ul{
+      list-style-type: none;
+  }
+  .container-categories li{
+      margin-top: 3px;
+      color: #111;
+      font-weight: 400;
+  }
+  .container-categories li:hover{
+      color: #00cc66;
+  }
+  .container-categories li a{
+      color: #111;
+      text-decoration: none;
+      font-weight: 400;
+  }
+  .container-categories li a:hover{
+      color: #00cc66;
+  }
 
   /*Thanh intro*/
   .container-intro{
@@ -477,34 +512,20 @@ body{
       padding: 40px 0;
   }
   .chicken-form .entry-form #submit-letter{
+      position: absolute;
       width: 100%;
       padding: 5px;
       float: left;
   }
-  .chicken-form .entry-form .action-submit {
-      position: absolute;
-      right: 0;
-      padding: 0 5px;
+  .chicken-form .entry-form .submit-letter-chicken {
+      position: relative;
+      float: right;
+      width: 75px;
       height: 33px;
-      display: flex;
-      align-items: center;
+      border: none;
       margin: 2px;
-      background: #00cc66;
-      padding-right: 0;
-  }
-  .chicken-form .entry-form .action-submit li{
-      float: left;
-      padding: 0 20px;
-      border-right: solid 1px #ccc;
-      list-style: none;
-  }
-  .chicken-form .entry-form .action-submit li a{
-      color: #fff;
-      text-decoration: none;
-      cursor: pointer;
-  }
-  .chicken-form .entry-form .action-submit li:last-child{
-      border-right: none;
+      background-color: #00cc66;
+      color: white;
   }
   /*footer*/
   #footer{

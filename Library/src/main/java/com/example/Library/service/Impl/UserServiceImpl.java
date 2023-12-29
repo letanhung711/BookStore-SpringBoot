@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 @Service
@@ -65,6 +66,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(long id) {
         userRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Users> findEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public Timestamp convertToDate(String date){

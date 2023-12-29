@@ -55,10 +55,10 @@
                 </div>
 
                 <div class="col-6 search_header">
-                    <form class="d-flex">
-                        <input id="import" type="text" placeholder="Bạn cần tìm gì ?">
+                    <form class="d-flex" action="/pages/search" method="get">
+                        <input id="import" name="search" type="text" placeholder="Bạn cần tìm gì ?">
                         <i id="icon-input" class="fa-solid fa-magnifying-glass"></i>
-                        <button class="search" type="button" onclick="kiemtra()">Search</button>
+                        <button class="search" type="submit">Search</button>
                     </form>
                 </div>
 
@@ -440,6 +440,176 @@
         </div>
     </div>
 
+    <!--Thanh danh muc-->
+    <div id="categories" class="wow bounceInUp">
+        <div class="container container-categories">
+            <h1>Danh mục</h1>
+            <div class="row row-1">
+                <!--Sách chuyên ngành-->
+                <div class="col-3" style="margin-top: 15px; width: 260px;">
+                    <ul>
+                        <li>
+                            <a href="/danhmuc/1/sachchuyennganh.html" style="text-transform: uppercase; font-weight: bold;">Sách chuyên ngành</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Chính trị - Triết học">> Chính trị - Triết học</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Công nghệ thông tin">> Công nghệ thông tin</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Khoa học tự nhiên">> Khoa học tự nhiên</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Lịch sử - Địa lý">> Lịch sử - Địa lý</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Mỹ thuật - Kiến trúc">> Mỹ thuật - Kiến trúc</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Khoa học xã hội">> Khoa học xã hội</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Sách kinh tế-->
+                <div class="col-3" style="margin-top: 15px; width: 260px;">
+                    <ul>
+                        <li>
+                            <a href="/danhmuc/1/sachkinhte.html" style="text-transform: uppercase; font-weight: bold;">Sách kinh tế</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Bài học kinh doanh">> Bài học kinh doanh</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Doanh nhân - Tập đoàn">> Doanh nhân - Tập đoàn</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Khởi nghiệp">> Khởi nghiệp</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Kinh tế học">> Kinh tế học</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Kỹ năng làm việc">> Kỹ năng làm việc</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Marketing - Bán hàng">> Marketing - Bán hàng</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Tài chính - Kế toán">> Tài chính - Kế toán</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Van học trong nước-->
+                <div class="col-3" style="margin-top: 15px; width: 260px;">
+                    <ul>
+                        <li>
+                            <a href="/danhmuc/1/vanhoctrongnuoc.html" style="text-transform: uppercase; font-weight: bold;">Văn học trong nước</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Tiểu thuyết">> Tiểu thuyết</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Truyện ngắn - Tản văn">> Truyện ngắn - Tản văn</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Thơ">> Thơ</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Huyền bí - Giả tưởng">> Huyền bí - Giả tưởng</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Phóng sự - Ký sự">> Phóng sự - Ký sự</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Trinh thám - Kinh dị">> Trinh thám - Kinh dị</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Tiểu sử - Hồi ký">> Tiểu sử - Hồi ký</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--học ngoại ngữ từ điển-->
+                <div class="col-3" style="margin-top: 15px; width: 260px;">
+                    <ul>
+                        <li>
+                            <a href="/danhmuc/1/hocngoaingu.html" style="text-transform: uppercase; font-weight: bold;">Học ngoại ngữ - Từ điển</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Từ điển">> Từ điển</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Sách học tiếng Anh">> Sách học tiếng Anh</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Sách học tiếng Nhật">> Sách học tiếng Nhật</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Sách học tiếng Hoa">> Sách học tiếng Hoa</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--sách kỹ năng sống-->
+                <div class="col-3" style="margin-top: 15px; width: 260px;">
+                    <ul>
+                        <li>
+                            <a href="/danhmuc/1/sach-ky-nang-song.html" style="text-transform: uppercase; font-weight: bold;">Sách kĩ năng sống</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Tiểu thuyết">> Kĩ năng sống</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Truyện ngắn - Tản văn">> Nghệ thuật sống đẹp</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Sách thiếu nhi-->
+                <div class="col-3" style="margin-top: 15px; width: 260px;">
+                    <ul>
+                        <li>
+                            <a href="/danhmuc/1/sach-thieu-nhi.html" style="text-transform: uppercase; font-weight: bold;">Sách thiếu nhi</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Truyện cổ tích - Thần thoại">> Truyện cổ tích - Thần thoại</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Kĩ năng - Kiến thức">> Kĩ năng - Kiến thức</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Vừa học - Vừa chơi">> Vừa học - Vừa chơi</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Văn học">> Văn học</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Truyện kể cho bé">> Truyện kể cho bé</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Sách tuổi teen-->
+                <div class="col-3" style="margin-top: 15px; width: 260px;">
+                    <ul>
+                        <li>
+                            <a href="/danhmuc/1/sach-tuoi-teen.html" style="text-transform: uppercase; font-weight: bold;">Sách tuổi teen</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Hướng nghiệp - Kĩ năng">> Hướng nghiệp - Kĩ năng</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Văn học teen">> Văn học teen</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Light Novel">> Light Novel</a>
+                        </li>
+                        <li>
+                            <a href="#" title="Truyện tranh - Comic">> Truyện tranh - Comic</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <br>
 
     <!--intro-->
@@ -477,13 +647,10 @@
                 </div>
             </div>
             <div class="col-6 chicken-form">
-                <form action="">
+                <form action="/pages/sendMailNews" method="post" onsubmit="return validateForm()">
                     <div class="entry-form">
-                        <input type="hidden" id="sexId" name="sexId">
-                        <input type="text" name="EmailLetter" id="submit-letter" placeholder="Nhập địa chỉ email của bạn">
-                        <ul class="action-submit">
-                            <li><a class="submit-letter-chicken">Gửi</a></li>
-                        </ul>
+                        <input type="email" name="email" id="submit-letter" placeholder="Nhập địa chỉ email của bạn" required>
+                        <button type="submit" class="submit-letter-chicken">Gửi</button>
                     </div>
                 </form>
             </div>
@@ -578,5 +745,21 @@
 <script th:src="@{/js/wow.min.js}"></script>
 <script>
   new WOW().init();
+
+  function validateForm() {
+    var emailInput = document.getElementById('submit-letter');
+    var email = emailInput.value.trim();
+
+    // Basic email validation using a regular expression
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Vui lòng nhập một địa chỉ email hợp lệ.');
+        return false;
+    }
+
+    // Additional validation logic if needed
+
+    return true;
+}
 </script>
 </html>
